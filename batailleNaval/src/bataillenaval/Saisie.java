@@ -66,8 +66,7 @@ public class Saisie {
 			System.out.println("Voulez-vous vraiment abandonner et perdre cette partie ?");
 			if (MaSaisie() == "oui") {
 				System.out.println("Vous avez abandoné");
-				fileManager.delete(gameName);
-				inGame = false;
+				
 			}
 		case 4:
 			System.out.println(HELP);

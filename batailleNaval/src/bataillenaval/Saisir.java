@@ -2,14 +2,28 @@ package bataillenaval;
 
 import java.util.Scanner;
 
+import reseau.FileManager;
+
 public class Saisir {
 	int l;
 	int c;
-
+	public String gameName = "";
+	public FileManager fileManager = new FileManager();
 
 	public String MaSaisie() {
 		Scanner zoneSaisie = new Scanner(System.in);
-		return zoneSaisie.nextLine().toLowerCase();
+		String choix=zoneSaisie.nextLine().toLowerCase();
+		if(choix.equals("aide")){
+			System.out.println(constantes.HELP);
+			return "";
+		}else if (choix.equals("abandon")){
+			System.out.println("Vous avez abandoné");
+			fileManager.delete(gameName);
+			return "";
+		}else{
+			return choix;
+		}
+		
 	}
 
 	public void choixCase(){
@@ -28,7 +42,6 @@ public class Saisir {
 	public int choixListe(int max){
 		String choix;
 		String caracMax=""+max;
-		boolean choixValide=false;
 		do{
 			choix = MaSaisie();
 			if ((choix.charAt(0) >= '1' && choix.charAt(0) <= caracMax.charAt(0)) && choix.length() == 1) {
@@ -40,7 +53,6 @@ public class Saisir {
 	
         public int menu(){
             String choix;
-            boolean choixValide=false;
 		do{
 			choix = MaSaisie();
 			if (choix.equals("Jouer")) {
