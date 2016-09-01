@@ -2,7 +2,7 @@ package bataillenaval;
 
 public class Cellule {
 
-	private boolean toucher = true;
+	private boolean toucher, hadBateau=false;
 	private Bateau bateau;
 
 	public Cellule(boolean toucher) {
@@ -33,6 +33,11 @@ public class Cellule {
 
 	public void addBateau(Bateau b){
 		bateau=b;
+                hadBateau=true;
 	}
+        
+        public boolean hadBateau(){
+            return hadBateau;
+        }
 
 }
