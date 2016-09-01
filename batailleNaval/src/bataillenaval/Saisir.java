@@ -38,6 +38,25 @@ public class Saisir {
 		}while(true);
 	}
 	
+        public int menu(){
+            String choix;
+            boolean choixValide=false;
+		do{
+			choix = MaSaisie();
+			if (choix.equals("Jouer")) {
+                            return 1;
+			}else if (choix.equals("Reprendre")) {
+                            return 2;
+			}else if (choix.equals("Abandon")) {
+                            return 3;
+			}else if (choix.equals("Aide")) {
+                            return 4;
+			}
+			System.out.println("L'entrée saisie est invalide !");
+		}while(true);
+        }
+        
+        
 	public int getLigne() {
 		return l;
 	}

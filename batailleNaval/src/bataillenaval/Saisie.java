@@ -32,8 +32,8 @@ public class Saisie {
 				if ((choix.charAt(0) >= 'a' && choix.charAt(0) <= 'j')
 						&& (choix.charAt(1) >= '1' && choix.charAt(1) <= '9')
 						&& choix.length() == 2) {
-					l = choix.charAt(0)-96;
-					c = choix.charAt(1)-48;
+					l = choix.charAt(0)-97;
+					c = choix.charAt(1)-49;
 					return 5;
 				}
 			}

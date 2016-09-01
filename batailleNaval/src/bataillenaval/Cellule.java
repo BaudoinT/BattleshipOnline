@@ -17,12 +17,14 @@ public class Cellule {
 		return toucher;
 	}
 
-	public void setToucher(boolean toucher) {
-		this.toucher = toucher;
+	public boolean setToucher() {
+		this.toucher = true;
 		if(bateau!=null){
 			bateau.bateauTouche();
 			bateau=null;
+                        return true;
 		}
+                return false;
 	}
 
 	public boolean hasBateau(){

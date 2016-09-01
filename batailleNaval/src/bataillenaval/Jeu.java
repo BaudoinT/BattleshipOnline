@@ -18,6 +18,7 @@ public class Jeu {
 		//Placement bateau J2
 
 		//J1 joue (annonce touche coule)
+                new ToucheCoule(plat, aff2);
 		//test partie fini et annonce gagnant
 		//J2 joue ---------------------
 		//test partie fini et annonce gagnant
