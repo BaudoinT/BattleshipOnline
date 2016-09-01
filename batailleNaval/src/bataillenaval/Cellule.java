@@ -2,10 +2,10 @@ package bataillenaval;
 
 public class Cellule {
 	
-	int x;
-	int y;
-	boolean toucher;
-	
+	private int x;
+	private int y;
+	private boolean toucher = false;
+
 	public Cellule(int x, int y, boolean toucher) {
 		this.x = x;
 		this.y = y;
