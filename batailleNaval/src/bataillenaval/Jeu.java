@@ -66,8 +66,10 @@ public class Jeu {
 	}
 
 	public boolean verifEtPlacement(int longueur, int posX, int posY, String sens, Bateau bateau){
+		posY--;
+		posX--;
 		if(sens.equals("horizontal")){
-			if(posY-1+longueur <= 10){
+			if(posY+longueur <= 10){
 				for(int i=posY; i<posY+longueur; i++){
 					if(plat.getplateauJ1()[posX][i].hasBateau()){
 						return false;
@@ -79,7 +81,7 @@ public class Jeu {
 				return true;
 			}
 		}else if (sens.equals("vertical")){
-			if(posX-1+longueur <= 10){	
+			if(posX+longueur <= 10){	
 				for(int i=posX; i<posX+longueur; i++){
 					if(plat.getplateauJ1()[i][posY].hasBateau()){
 						return false;
