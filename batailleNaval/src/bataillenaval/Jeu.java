@@ -2,23 +2,24 @@ package bataillenaval;
 
 public class Jeu {
 
-	Plateau plat;
-	
+	private Plateau plat;
+	private Affichage aff;
+        
 	public void lancerPartie(){
 		
 		//afhicherPlateau
 		plat=new Plateau();
-		Affichage aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
+		aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
 		aff.affichagePlateau(0);
 
 		//Placement bateau J1
 		choixBateauAPlacer();
-		Affichage aff2=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
-		aff2.affichagePlateau(0);
+//		Affichage aff2=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
+//		aff2.affichagePlateau(0);
 		//Placement bateau J2
 
 		//J1 joue (annonce touche coule)
-                new ToucheCoule(plat, aff2);
+                new ToucheCoule(plat, aff);
 		//test partie fini et annonce gagnant
 		//J2 joue ---------------------
 		//test partie fini et annonce gagnant
@@ -41,7 +42,8 @@ public class Jeu {
 		for(int i=0; i<longueurBat.length; i++){
 			System.out.println("Où voulez-vous placer le "+nomBat[i]+" ("+longueurBat[i]+" cases) ?");
 			emplacementBateau(longueurBat[i]);
-		}
+		aff.affichagePlateau(0);
+                }
 	}
 
 	public void emplacementBateau(int longueur){
