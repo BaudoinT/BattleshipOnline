@@ -5,8 +5,8 @@
  */
 package reseau;
 
+import bataillenaval.constantes;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -14,16 +14,17 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author lalleaul
+ * @author lalleaul, jedrzejw
  */
 public class FileManager {
 
-    private String p;
+    private String p = constantes.PATH;
 
-    public FileManager(String path) {
-        this.p = path;
-    }
 
+    /**
+     * Créé un fichier vide nommé par l'utilisateur dnas le dossier public
+     * @return 
+     */
     public boolean createNewGame() {
         System.out.println("Saisir nom de nouvelle partie : ");
         Scanner scanner = new Scanner(System.in);
@@ -40,8 +41,32 @@ public class FileManager {
 
             return true;
         }
-
         System.out.println("Cette partie existe déjà...");
         return false;
+    }
+    
+    /**
+     * Ecrit le texte dans le fichier fileName dans le dossier public
+     * @param fileName
+     * @param texte 
+     */
+    public void write(String fileName, String texte) {
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(constantes.PATH + fileName);
+            writer.print(texte);
+
+        } catch (Exception ex) {
+            Logger.getLogger(FileManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        writer.close();
+    }
+    
+    /**
+     * Supprime le fichier fileName du dossier public
+     * @param fileName 
+     */
+    public void delete(String fileName){
+       new File(constantes.PATH + fileName).delete();
     }
 }
