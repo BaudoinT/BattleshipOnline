@@ -3,13 +3,14 @@ package bataillenaval;
 public class Bateau {
 	
 	private int nbVie;
+        private boolean coule;
 	
 	public Bateau(int longueur){
 		nbVie=longueur;
 	}
 	
-	public void bateauCoule(){
-		//afficher message
+	public boolean bateauCoule(){
+            return coule;
 	}
         
         public int getVie(){
@@ -24,7 +25,7 @@ public class Bateau {
 		nbVie--;
 		//afficher message
 		if(nbVie==0){
-			bateauCoule();
+			coule = true;
 		}
 	}
 }

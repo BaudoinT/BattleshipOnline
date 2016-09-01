@@ -17,6 +17,7 @@ public class ToucheCoule {
        if(plateau.getplateauJ1()[saisie.getLigne()][saisie.getCol()].setToucher()){
            aff.affichagePlateau(0);
            System.out.println("Tu as touché!");
+           // ajout 
         } else {
            aff.affichagePlateau(0);
            System.out.println("A l'eau!");
