@@ -18,14 +18,14 @@ public class BatailleNaval {
     public static void main(String[] args) {
 
         // TODO code application logic here
-        Plateau plat=new Plateau();
-        Affichage aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
+    
+       
 
         System.out.println(constantes.HELP);
         System.out.println("Entrez JOUER pour debuter une nouvelle partie.");
         new Saisie();
      
-        aff.affichagePlateau(0);
+
         Jeu jeu= new Jeu();
         jeu.lancerPartie();
     }
