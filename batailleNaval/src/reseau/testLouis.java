@@ -5,6 +5,7 @@
  */
 package reseau;
 
+import bataillenaval.constantes;
 import java.io.File;
 import java.util.Scanner;
 
@@ -14,9 +15,8 @@ import java.util.Scanner;
  */
 public class testLouis {
     public static void main(String[] args) {
-        String path = "/home/infoetu/baudoint/BattleshipPublic/";
-        FileManager fM = new FileManager(path);
+        FileManager fM = new FileManager(constantes.PATH);
         fM.createNewGame();
-
+        System.out.println(System.getProperty("user.name"));
     }
 }
