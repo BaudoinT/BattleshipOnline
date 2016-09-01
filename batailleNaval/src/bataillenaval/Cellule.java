@@ -1,7 +1,7 @@
 package bataillenaval;
 
 public class Cellule {
-	
+
 	private boolean toucher = false;
 	private Bateau bateau;
 
@@ -9,14 +9,14 @@ public class Cellule {
 		this.toucher = toucher;
 	}
 
-        public Cellule(){
-            this(false);
-        }
-	
+	public Cellule(){
+		this(false);
+	}
+
 	public boolean isToucher() {
 		return toucher;
 	}
-	
+
 	public void setToucher(boolean toucher) {
 		this.toucher = toucher;
 		if(bateau!=null){
@@ -24,9 +24,9 @@ public class Cellule {
 			bateau=null;
 		}
 	}
-	
+
 	public void addBateau(Bateau b){
 		bateau=b;
 	}
-	
+
 }
