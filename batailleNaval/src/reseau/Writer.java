@@ -20,15 +20,14 @@ public class Writer {
 
     public void write(String fileName, String texte) {
         PrintWriter writer = null;
-        System.out.println("sdjfb");
         try {
             writer = new PrintWriter(path + fileName);
             writer.print(texte);
-            writer.close();
 
         } catch (Exception ex) {
             Logger.getLogger(Writer.class.getName()).log(Level.SEVERE, null, ex);
         }
+        writer.close();
     }
 
     public void delete(String fileName){
