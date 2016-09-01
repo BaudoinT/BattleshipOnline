@@ -20,8 +20,8 @@ public final class constantes {
                                     + "Un à un, les joueurs vont tirer sur une case de l'adversaire. Par exemple B3 ou encore H8. Le but est donc de couler les bateaux adverses.\n"
                                     + "\n"
                                     + "Entrées possibles dans la zone de saisie: \n"
-                                    + "help : ouvre cette page d'aide."
-                                    + "abandon: permet d'abandoner une partie."
+                                    + "help : ouvre cette page d'aide.\n"
+                                    + "abandon: permet d'abandoner une partie.\n"
                                     + "A1,B6,J9.. : Selection de la case sur laquelle vous tirez.";
     
     
