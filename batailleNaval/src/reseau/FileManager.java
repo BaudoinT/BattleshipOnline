@@ -5,8 +5,13 @@
  */
 package reseau;
 
+import bataillenaval.Affichage;
+import bataillenaval.Plateau;
 import bataillenaval.constantes;
+import com.google.gson.Gson;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,6 +31,13 @@ public class FileManager {
 
     private String p = constantes.PATH;
     private String nameGame;
+    private long lastModified;
+    private String user;
+
+    public FileManager() {
+        this.user = System.getProperty("user.name");
+
+    }
 
     /**
      * Créé un fichier vide nommé par l'utilisateur dnas le dossier public
@@ -47,12 +59,16 @@ public class FileManager {
         try {
             Files.createFile(f);
             Set<PosixFilePermission> perms = new HashSet<PosixFilePermission>();
+            perms.add(PosixFilePermission.OWNER_READ);
+            perms.add(PosixFilePermission.OWNER_WRITE);
             perms.add(PosixFilePermission.GROUP_READ);
             perms.add(PosixFilePermission.GROUP_WRITE);
             Files.setPosixFilePermissions(f, perms);
         } catch (Exception e) {
             System.out.println("Erreur lors de la lecture : " + e.getMessage());
         }
+        //System.out.println(System.currentTimeMillis());
+        this.lastModified = this.getUpdateTime();
         return this.nameGame;
     }
 
@@ -73,6 +89,17 @@ public class FileManager {
                     .getName()).log(Level.SEVERE, null, ex);
         }
         writer.close();
+        this.lastModified = this.getUpdateTime();
+    }
+
+    public void read() {
+        Gson gson = new Gson();
+        try {
+            //TODO : Changer Plateau par objet de la partie
+            Plateau plateau = gson.fromJson(new FileReader(constantes.PATH + nameGame), Plateau.class);
+        } catch (FileNotFoundException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
     }
 
     /**
@@ -82,5 +109,17 @@ public class FileManager {
      */
     public void delete(String fileName) {
         new File(constantes.PATH + fileName).delete();
+    }
+
+    public long getUpdateTime() {
+        return new File(constantes.PATH + nameGame).lastModified();
+    }
+
+    public boolean isMyTurn() {
+        return this.lastModified != this.getUpdateTime();
+    }
+
+    public void writeUser() {
+        this.write(nameGame, this.user);
     }
 }

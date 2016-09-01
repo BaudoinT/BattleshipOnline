@@ -5,18 +5,39 @@
  */
 package reseau;
 
+import bataillenaval.Affichage;
+import bataillenaval.Plateau;
 import bataillenaval.constantes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author lalleaul
  */
 public class testLouis {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         FileManager fM = new FileManager();
-        fM.createNewGame();
-        System.out.println(System.getProperty("user.name"));
+        String name = fM.createNewGame();
+        System.out.println(fM.getUpdateTime());
+        fM.writeUser();
+        System.out.println("C'est mon tour?" + fM.isMyTurn());
+
+        System.out.println(fM.getUpdateTime());
+        System.out.println("C'est mon tour?" + fM.isMyTurn());
+        System.out.println("Nom de fichier : ");
+        Scanner scanner = new Scanner(System.in);
+        String nomFichier = scanner.nextLine();
+        
     }
 }
