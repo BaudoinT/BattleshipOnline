@@ -29,44 +29,44 @@ public class Jeu {
 
 	public void emplacementBateau(int longueur){
 		Bateau bateau=new Bateau(longueur);
-		ZoneSaisie position;
-		ZoneSaisie sens;
+		Saisie s;
+		String position;
+		String sens;
 		do{
 			System.out.println("Sur quelle case voulez-vous positionner votre bateau ?");
-			position = new ZoneSaisie();
+			s = new Saisie();
+			s.caseChoisie();
 			System.out.println("Dans sens voulez-vous mettre votre bateau ?(1: Horizontal ou 2: Vertical");
-			sens = new ZoneSaisie();
+			sens = s.caseChoisie();
 
-		}while(verifEtPlacement(longueur, position.getSaisie(), sens.getSaisie(), bateau));
+		}while(verifEtPlacement(longueur, s.getX(), s.getY(), sens, bateau));
 		
 		
 
 	}
 
-	public boolean verifEtPlacement(int longueur, String position, String sens, Bateau bateau){
+	public boolean verifEtPlacement(int longueur, int posX, int posY, String sens, Bateau bateau){
 		if(sens.equals("horizontal")){
-			int chiffre = position.charAt(1);
-			if(chiffre-1+longueur <= 10){
-				for(int i=position.charAt(1); i<position.charAt(1)+longueur; i++){
-					if(plat.getplateauJ1()[position.charAt(0)-64][i].estBateau()){
+			if(posY-1+longueur <= 10){
+				for(int i=posY; i<posY+longueur; i++){
+					if(plat.getplateauJ1()[posX][i].hasBateau()){
 						return false;
 					}
 				}
-				for(int i=position.charAt(1); i<position.charAt(1)+longueur; i++){
-					plat.getplateauJ1()[position.charAt(0)-64][i].addBateau(bateau);
+				for(int i=posY; i<posY+longueur; i++){
+					plat.getplateauJ1()[posX][i].addBateau(bateau);
 				}
 				return true;
 			}
 		}else if (sens.equals("vertical")){
-			int lettre = position.charAt(0)-64;
-			if(lettre-1+longueur <= 10){	
-				for(int i=position.charAt(0)-64; i<position.charAt(0)-64+longueur; i++){
-					if(plat.getplateauJ1()[i][position.charAt(1)].estBateau()){
+			if(posX-1+longueur <= 10){	
+				for(int i=posX; i<posX+longueur; i++){
+					if(plat.getplateauJ1()[i][posY].hasBateau()){
 						return false;
 					}
 				}
-				for(int i=position.charAt(0)-64; i<position.charAt(0)-64+longueur; i++){
-					plat.getplateauJ1()[i][position.charAt(1)].addBateau(bateau);
+				for(int i=posX; i<posX+longueur; i++){
+					plat.getplateauJ1()[i][posY].addBateau(bateau);
 				}
 				return true;
 			}
