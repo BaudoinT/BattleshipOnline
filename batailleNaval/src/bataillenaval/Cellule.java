@@ -3,6 +3,7 @@ package bataillenaval;
 public class Cellule {
 	
 	private boolean toucher = false;
+	private Bateau bateau;
 
 	public Cellule(boolean toucher) {
 
@@ -19,6 +20,14 @@ public class Cellule {
 	
 	public void setToucher(boolean toucher) {
 		this.toucher = toucher;
+		if(bateau!=null){
+			bateau.bateauTouche();
+			bateau=null;
+		}
+	}
+	
+	public void addBateau(Bateau b){
+		bateau=b;
 	}
 	
 }
