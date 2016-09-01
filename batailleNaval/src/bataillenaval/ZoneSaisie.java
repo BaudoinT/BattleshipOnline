@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author laffileh
  */
 public class ZoneSaisie {
-    public static void main(String[] args){
+    public ZoneSaisie(){
     Scanner zoneSaisie = new Scanner(System.in);
     System.out.println("Zone de saisie: ");
     String recup = zoneSaisie.nextLine();
@@ -34,6 +34,9 @@ public class ZoneSaisie {
         }
         else if(recup.equals("JOUER")){
             // debute une nouvelle partie
+        }
+        else if(recup.equals("REPRENDRE")){
+            // reprise partie
         }
         else if( (recup.charAt(0)>='A' && recup.charAt(0)<='J') 
               && (recup.charAt(1)>='1' && recup.charAt(1)<='9')){

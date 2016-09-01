@@ -18,6 +18,7 @@ public class BatailleNaval {
     public static void main(String[] args) {
         System.out.println(constantes.HELP);
         System.out.println("Entrez JOUER pour debuter une nouvelle partie.");
+        System.out.println("Entrez REPRENDRE pour reprendre une partie.");
         new ZoneSaisie();
         
     }
