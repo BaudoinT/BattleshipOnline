@@ -24,5 +24,7 @@ public final class constantes {
                                     + "abandon: permet d'abandoner une partie.\n"
                                     + "A1,B6,J9.. : Selection de la case sur laquelle vous tirez.";
     
+    public static final String PATH = "/home/infoetu/baudoint/BattleshipPublic/";
+    
     
 }

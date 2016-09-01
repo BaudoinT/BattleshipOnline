@@ -5,6 +5,7 @@
  */
 package reseau;
 
+import bataillenaval.constantes;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -16,12 +17,10 @@ import java.util.logging.Logger;
  */
 public class Writer {
 
-    private String path = "/home/infoetu/baudoint/BattleshipPublic/";
-
     public void write(String fileName, String texte) {
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter(path + fileName);
+            writer = new PrintWriter(constantes.PATH + fileName);
             writer.print(texte);
 
         } catch (Exception ex) {
@@ -31,7 +30,7 @@ public class Writer {
     }
 
     public void delete(String fileName){
-       new File(path + fileName).delete();
+       new File(constantes.PATH + fileName).delete();
     }
 
 }
