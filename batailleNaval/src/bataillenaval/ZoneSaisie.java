@@ -13,6 +13,7 @@ import java.util.Scanner;
  * @author laffileh
  */
 public class ZoneSaisie {
+	private String saisie;
     public ZoneSaisie(){
     Scanner zoneSaisie = new Scanner(System.in);
     System.out.println("Zone de saisie: ");
@@ -40,10 +41,16 @@ public class ZoneSaisie {
         }
         else if( (recup.charAt(0)>='A' && recup.charAt(0)<='J') 
               && (recup.charAt(1)>='1' && recup.charAt(1)<='9')){
-            //action touché/coulé/a l'eau
+            saisie=recup;
+        
         }
         else{
             System.out.println("Ce que vous avez saisit n'est pas valide!");
         }
-    }   
+    } 
+    
+    public String getSaisie(){
+    	return saisie;
+    	
+    }
 }
