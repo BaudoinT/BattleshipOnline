@@ -5,21 +5,23 @@
  */
 package bataillenaval;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author collotl
  */
 public class Affichage {
-
-    private Cellule[][] plateauJ1;
-    private Cellule[][] plateauJ2;
+    private ArrayList<Cellule[][]> plateaux=new ArrayList<>();
 
     public Affichage(Cellule[][] plateauJ1, Cellule[][] plateauJ2) {
-        this.plateauJ1 = plateauJ1;
-        this.plateauJ2 = plateauJ2;
+       plateaux.add(plateauJ1);
+       plateaux.add(plateauJ2);
     }
 
-    public void affichagePlateau() {
+    public void affichagePlateau(int tour) {
+
+        
         for (int j = 0; j < 11; j++) {
             System.out.print(" ___");
         }
@@ -48,22 +50,22 @@ public class Affichage {
 
             System.out.print("|\u001B[30;44m");
             for (int x = 0; x < 9; x++) {
-                if (plateauJ1[i][x].hasBateau()) {
+                if (plateaux.get(tour)[i][x].hasBateau()) {
                     System.out.print("\u001B[30;43m   \u001B[30;44m|");
-                } else if (plateauJ1[i][x].isToucher() && plateauJ1[i][x].hadBateau()) {
+                } else if (plateaux.get(tour)[i][x].isToucher() && plateaux.get(tour)[i][x].hadBateau()) {
                     System.out.print("\u001B[30;41m   \u001B[30;44m|");
-                } else if (plateauJ1[i][x].isToucher()) {
+                } else if (plateaux.get(tour)[i][x].isToucher()) {
                     System.out.print("\u001B[30;47m   \u001B[30;44m|");
                 } else {
                     System.out.print("\u001B[30;44m   |");
                 }
 
             }
-            if (plateauJ1[i][9].hasBateau()) {
+            if (plateaux.get(tour)[i][9].hasBateau()) {
                 System.out.print("\u001B[30;43m   \u001B[30;44m|\u001B[30;47m");
-            } else if (plateauJ1[i][9].isToucher() && plateauJ1[i][9].hadBateau()) {
+            } else if (plateaux.get(tour)[i][9].isToucher() && plateaux.get(tour)[i][9].hadBateau()) {
                 System.out.print("\u001B[30;41m   \u001B[30;44m|\u001B[30;47m");
-            }else if (plateauJ1[i][9].isToucher()) {
+            }else if (plateaux.get(tour)[i][9].isToucher()) {
                 System.out.print("\u001B[30;47m   \u001B[30;44m|\u001B[30;47m");
             } else {
                 System.out.print("   |\u001B[30;47m");
@@ -72,11 +74,11 @@ public class Affichage {
             System.out.print("|");
             System.out.print("___|");
             for (int j = 0; j < 10; j++) {
-                if (plateauJ1[i][j].hasBateau()) {
+                if (plateaux.get(tour)[i][j].hasBateau()) {
                     System.out.print("\u001B[30;43m___\u001B[30;44m|");
-                } else if (plateauJ1[i][j].isToucher() && plateauJ1[i][j].hadBateau()) {
+                } else if (plateaux.get(tour)[i][j].isToucher() && plateaux.get(tour)[i][j].hadBateau()) {
                     System.out.print("\u001B[30;41m___\u001B[30;44m|");
-                }else if (plateauJ1[i][j].isToucher()) {
+                }else if (plateaux.get(tour)[i][j].isToucher()) {
                     System.out.print("\u001B[30;47m___\u001B[30;44m|");
                 } else {
                     System.out.print("\u001B[30;44m___|");
