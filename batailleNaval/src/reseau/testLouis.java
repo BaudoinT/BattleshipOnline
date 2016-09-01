@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class testLouis {
     public static void main(String[] args) {
-        FileManager fM = new FileManager(constantes.PATH);
+        FileManager fM = new FileManager();
         fM.createNewGame();
         System.out.println(System.getProperty("user.name"));
     }
