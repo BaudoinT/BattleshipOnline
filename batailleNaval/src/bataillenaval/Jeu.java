@@ -2,13 +2,15 @@ package bataillenaval;
 
 public class Jeu {
 
+	Plateau plat;
 	//afficher plateau
-	Plateau plat=new Plateau();
-	Affichage aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
-	aff.affichagePlateau();
+	public void lancerPartie(){
+		plat=new Plateau();
+		Affichage aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
+		aff.affichagePlateau(0);
 
-	//Placement bateau J1
-
+		//Placement bateau J1
+	}
 
 	public void choixBateauAPlacer(){
 		System.out.println("Vous avez 5 bateaux à placer: ");
@@ -31,7 +33,7 @@ public class Jeu {
 		Bateau bateau=new Bateau(longueur);
 		Saisie s;
 		String position;
-		String sens;
+		String sens="";
 		do{
 			System.out.println("Sur quelle case voulez-vous positionner votre bateau ?");
 			s = new Saisie();
@@ -45,8 +47,8 @@ public class Jeu {
 			}
 
 		}while(verifEtPlacement(longueur, s.getLigne(), s.getCol(), sens, bateau));
-		
-		
+
+
 
 	}
 
@@ -79,6 +81,7 @@ public class Jeu {
 			System.out.println("Cette place n'est pas valide !");
 			return false;
 		}
+		return false;
 
 	}
 
