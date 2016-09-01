@@ -5,6 +5,7 @@
  */
 package reseau;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,19 +18,21 @@ public class Writer {
 
     private String path = "/home/infoetu/baudoint/BattleshipPublic/";
 
-    public boolean write(String fileName, String texte) {
+    public void write(String fileName, String texte) {
         PrintWriter writer = null;
         System.out.println("sdjfb");
         try {
             writer = new PrintWriter(path + fileName);
             writer.print(texte);
             writer.close();
-            
+
         } catch (Exception ex) {
             Logger.getLogger(Writer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        return true;
+    }
+
+    public void delete(String fileName){
+       new File(path + fileName).delete();
     }
 
 }
