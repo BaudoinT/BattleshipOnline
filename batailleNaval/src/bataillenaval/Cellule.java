@@ -5,13 +5,17 @@ public class Cellule {
 	private int x;
 	private int y;
 	private boolean toucher = false;
-	
+
 	public Cellule(int x, int y, boolean toucher) {
 		this.x = x;
 		this.y = y;
 		this.toucher = toucher;
 	}
-	
+
+        public Cellule(int x, int y){
+            this(x,y,false);
+        }
+        
 	public int getX() {
 		return x;
 	}
