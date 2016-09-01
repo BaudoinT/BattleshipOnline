@@ -35,11 +35,16 @@ public class Jeu {
 		do{
 			System.out.println("Sur quelle case voulez-vous positionner votre bateau ?");
 			s = new Saisie();
-			s.caseChoisie();
+			s.Choix();
 			System.out.println("Dans sens voulez-vous mettre votre bateau ?(1: Horizontal ou 2: Vertical");
-			sens = s.caseChoisie();
+			int choixSens=s.Choix();
+			if(choixSens==6){
+				sens="horizontal";
+			}else if(choixSens==7){
+				sens="vertical";
+			}
 
-		}while(verifEtPlacement(longueur, s.getX(), s.getY(), sens, bateau));
+		}while(verifEtPlacement(longueur, s.getLigne(), s.getCol(), sens, bateau));
 		
 		
 

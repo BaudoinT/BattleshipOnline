@@ -22,8 +22,10 @@ public class Saisie {
         String choix = MaSaisie();
         if (inGame) {
             switch (choix) {
-                case "abandon":
-                    return 3;
+            	case "horizontal":
+                return 6;
+                case "vertical":
+                    return 7;
                 case "help":
                     return 4;
                 default:
