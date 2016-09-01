@@ -29,8 +29,11 @@ public class ZoneSaisie {
             }
         }
         else if(recup.equals("help")){
-            System.out.println("Vous avez ouvert l'aide");//a enlever
-            // ouvrir l'aide 
+            System.out.println(constantes.HELP);
+
+        }
+        else if(recup.equals("JOUER")){
+            // debute une nouvelle partie
         }
         else if( (recup.charAt(0)>='A' && recup.charAt(0)<='J') 
               && (recup.charAt(1)>='1' && recup.charAt(1)<='9')){
