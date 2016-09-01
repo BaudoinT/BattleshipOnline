@@ -19,5 +19,6 @@ public class test {
      Plateau p = new Plateau();
      p.initPlateauAvecDesTrucs();
      w.write("testonsGayment", new GsonBuilder().create().toJson(p));
+     w.delete("testonsGayment");
  }
 }
