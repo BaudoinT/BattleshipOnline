@@ -27,6 +27,6 @@ public class BatailleNaval {
      
         aff.affichagePlateau(0);
         Jeu jeu= new Jeu();
-
+        jeu.lancerPartie();
     }
 }
