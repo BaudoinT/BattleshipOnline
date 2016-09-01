@@ -3,13 +3,27 @@ package bataillenaval;
 public class Jeu {
 
 	Plateau plat;
-	//afficher plateau
+	
 	public void lancerPartie(){
+		
+		//afhicherPlateau
 		plat=new Plateau();
 		Affichage aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
 		aff.affichagePlateau(0);
 
 		//Placement bateau J1
+		choixBateauAPlacer();
+		Affichage aff2=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
+		aff2.affichagePlateau(0);
+		//Placement bateau J2
+
+		//J1 joue (annonce touche coule)
+		//test partie fini et annonce gagnant
+		//J2 joue ---------------------
+		//test partie fini et annonce gagnant
+
+		//retour menu
+
 	}
 
 	public void choixBateauAPlacer(){
@@ -21,9 +35,9 @@ public class Jeu {
 		System.out.println("5: Porte-avion (5 cases)");
 
 		int longueurBat[]=new int[]{2,3,3,4,5};
-		String nomBat[]=new String[]{"Torpilleur","Contre-torpilleur","Sous-marin","CroiseurPorte-avion"};
+		String nomBat[]=new String[]{"Torpilleur","Contre-torpilleur","Sous-marin","Croiseur","Porte-avion"};
 
-		for(int i=1; i<longueurBat.length; i++){
+		for(int i=0; i<longueurBat.length; i++){
 			System.out.println("Où voulez-vous placer le "+nomBat[i]+" ("+longueurBat[i]+" cases) ?");
 			emplacementBateau(longueurBat[i]);
 		}
@@ -32,13 +46,12 @@ public class Jeu {
 	public void emplacementBateau(int longueur){
 		Bateau bateau=new Bateau(longueur);
 		Saisie s;
-		String position;
 		String sens="";
 		do{
 			System.out.println("Sur quelle case voulez-vous positionner votre bateau ?");
 			s = new Saisie();
 			s.Choix();
-			System.out.println("Dans sens voulez-vous mettre votre bateau ?(1: Horizontal ou 2: Vertical");
+			System.out.println("Dans sens voulez-vous mettre votre bateau ?(1: Horizontal ou 2: Vertical)");
 			int choixSens=s.Choix();
 			if(choixSens==6){
 				sens="horizontal";
@@ -46,7 +59,7 @@ public class Jeu {
 				sens="vertical";
 			}
 
-		}while(verifEtPlacement(longueur, s.getLigne(), s.getCol(), sens, bateau));
+		}while(!verifEtPlacement(longueur, s.getLigne(), s.getCol(), sens, bateau));
 
 
 
@@ -84,15 +97,4 @@ public class Jeu {
 		return false;
 
 	}
-
-	//Placement bateau J2
-
-
-	//J1 joue (annonce touche coule)
-	//test partie fini et annonce gagnant
-	//J2 joue ---------------------
-	//test partie fini et annonce gagnant
-
-	//retour menu
-
 }
