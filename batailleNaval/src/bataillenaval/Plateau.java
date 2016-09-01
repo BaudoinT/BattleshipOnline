@@ -18,8 +18,8 @@ public class Plateau {
     private void initPlateauVide(){
         for(int i =0; i<10;i++){
             for(int j=0;j<10;j++){
-                plateauJ1[i][j]=new Cellule(i,j);
-                plateauJ2[i][j]=new Cellule(i,j);
+                plateauJ1[i][j]=new Cellule();
+                plateauJ2[i][j]=new Cellule();
             }
         }
     }

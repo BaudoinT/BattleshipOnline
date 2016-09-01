@@ -6,11 +6,10 @@ public class Cellule {
 	private Bateau bateau;
 
 	public Cellule(boolean toucher) {
-
 		this.toucher = toucher;
 	}
 
-        public Cellule(int x, int y){
+        public Cellule(){
             this(false);
         }
 	
