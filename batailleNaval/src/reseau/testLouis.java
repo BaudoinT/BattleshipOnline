@@ -32,12 +32,14 @@ public class testLouis {
         System.out.println(fM.getUpdateTime());
         fM.writeUser();
         System.out.println("C'est mon tour?" + fM.isMyTurn());
-
+        System.out.println("On continue?");
+        Scanner scanner = new Scanner(System.in);
+        String nomFichier = scanner.nextLine();
         System.out.println(fM.getUpdateTime());
         System.out.println("C'est mon tour?" + fM.isMyTurn());
         System.out.println("Nom de fichier : ");
-        Scanner scanner = new Scanner(System.in);
-        String nomFichier = scanner.nextLine();
-        
+        scanner = new Scanner(System.in);
+        nomFichier = scanner.nextLine();
+
     }
 }
