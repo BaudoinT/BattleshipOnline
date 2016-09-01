@@ -45,17 +45,17 @@ public class Jeu {
 
 	public void emplacementBateau(int longueur){
 		Bateau bateau=new Bateau(longueur);
-		Saisie s;
+		Saisir s;
 		String sens="";
 		do{
 			System.out.println("Sur quelle case voulez-vous positionner votre bateau ?");
-			s = new Saisie();
-			s.Choix();
+			s = new Saisir();
+			s.choixCase();
 			System.out.println("Dans sens voulez-vous mettre votre bateau ?(1: Horizontal ou 2: Vertical)");
-			int choixSens=s.Choix();
-			if(choixSens==6){
+			int choixSens=s.choixListe(2);
+			if(choixSens==1){
 				sens="horizontal";
-			}else if(choixSens==7){
+			}else if(choixSens==2){
 				sens="vertical";
 			}
 
