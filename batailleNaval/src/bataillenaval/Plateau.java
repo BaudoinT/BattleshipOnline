@@ -20,7 +20,7 @@ public class Plateau {
             for(int j=0;j<10;j++){
                 plateauJ1[i][j]=new Cellule();
                 plateauJ2[i][j]=new Cellule();
-            }
+            }         
         }
     }
     
