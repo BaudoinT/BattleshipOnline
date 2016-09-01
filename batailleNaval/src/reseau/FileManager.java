@@ -41,8 +41,7 @@ public class FileManager {
             return true;
         }
 
-        System.out.println(
-                "Cette partie existe déjà...");
+        System.out.println("Cette partie existe déjà...");
         return false;
     }
 }
