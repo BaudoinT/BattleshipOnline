@@ -11,6 +11,14 @@ public class Bateau {
 	public void bateauCoule(){
 		//afficher message
 	}
+        
+        public int getVie(){
+            return this.nbVie;
+        }
+        
+        public void setVie(int a){
+            this.nbVie = a;
+        }
 	
 	public void bateauTouche(){
 		nbVie--;
