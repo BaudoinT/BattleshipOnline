@@ -26,5 +26,7 @@ public class BatailleNaval {
         new Saisie();
      
         aff.affichagePlateau(0);
+        Jeu jeu= new Jeu();
+
     }
 }
