@@ -31,4 +31,12 @@ public class Plateau {
     public Plateau(){
         this.initPlateauVide();
     }
+    
+    public Cellule [][] getplateauJ1(){
+        return plateauJ1;
+    }
+    
+    public Cellule [][] getplateauJ2(){
+        return plateauJ2;
+    }
 }
