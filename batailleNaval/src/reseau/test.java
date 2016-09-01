@@ -6,7 +6,7 @@
 
 package reseau;
 
-import com.google.gson.Gson;
+import bataillenaval.Plateau;
 import com.google.gson.GsonBuilder;
 
 /**
@@ -16,6 +16,8 @@ import com.google.gson.GsonBuilder;
 public class test {
  public static void main(String[] args){
      Writer w = new Writer();
-     w.write("testonsGayment", "sdhgfbyebgvusbvuzsbvfuxwjbvbsuvbsbvuisbviusbvuisdbn\nsebfgyhebfgysbfyvsbufyv");
+     Plateau p = new Plateau();
+     p.initPlateauAvecDesTrucs();
+     w.write("testonsGayment", new GsonBuilder().create().toJson(p));
  }
 }

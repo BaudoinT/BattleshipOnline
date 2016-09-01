@@ -24,6 +24,9 @@ public class Plateau {
         }
     }
     
+    public void initPlateauAvecDesTrucs(){
+        plateauJ1[1][0].addBateau(new Bateau(1));
+    }
     public Plateau(){
         this.initPlateauVide();
     }
