@@ -14,5 +14,8 @@ import com.google.gson.GsonBuilder;
  * @author lalleaul
  */
 public class test {
- 
+ public static void main(String[] args){
+     Writer w = new Writer();
+     w.write("testonsGayment", "sdhgfbyebgvusbvuzsbvfuxwjbvbsuvbsbvuisbviusbvuisdbn\nsebfgyhebfgysbfyvsbufyv");
+ }
 }
