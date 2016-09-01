@@ -74,7 +74,6 @@ public class FileManager {
 
     /**
      * Ecrit le texte dans le fichier fileName dans le dossier public
-     *
      * @param fileName
      * @param texte
      */
@@ -99,6 +98,7 @@ public class FileManager {
             Plateau plateau = gson.fromJson(new FileReader(constantes.PATH + nameGame), Plateau.class);
         } catch (FileNotFoundException e) {
             System.out.println("Erreur : " + e.getMessage());
+            
         }
     }
 
