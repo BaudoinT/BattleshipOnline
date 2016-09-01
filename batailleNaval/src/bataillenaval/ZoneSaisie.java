@@ -32,6 +32,7 @@ public class ZoneSaisie {
                 if (recup.equalsIgnoreCase("oui")) {
                     System.out.println("Vous avez abandoné");
                     fileManager.delete(gameName);
+                    inGame = false;
                 } else {
                     System.out.println("Retour au jeu"); // a enlever
                     // retour au jeu
@@ -44,7 +45,7 @@ public class ZoneSaisie {
             //not in game (menu)
             if (recup.equalsIgnoreCase("JOUER")) {
                 inGame = true;
-                fileManager.createNewGame();
+                gameName = fileManager.createNewGame();
                 //lancement de la partie
             } else if (recup.equalsIgnoreCase("CHARGER")) {
                 // reprise partie sauvegardée
