@@ -23,9 +23,8 @@ public class BatailleNaval {
 
         System.out.println(constantes.HELP);
         System.out.println("Entrez JOUER pour debuter une nouvelle partie.");
-//        new ZoneSaisie();
+        new Saisie();
      
         aff.affichagePlateau(0);
     }
-    
 }
