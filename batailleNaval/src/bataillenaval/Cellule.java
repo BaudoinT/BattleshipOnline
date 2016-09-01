@@ -2,7 +2,7 @@ package bataillenaval;
 
 public class Cellule {
 
-	private boolean toucher = true;
+	private boolean toucher, hadBateau=false;
 	private Bateau bateau;
 
 	public Cellule(boolean toucher) {
@@ -24,15 +24,20 @@ public class Cellule {
 			bateau=null;
 		}
 	}
-        
-        public boolean hasBateau(){
-            if(bateau==null)
-                return false;
-            return true;
-        }
-        
+
+	public boolean hasBateau(){
+		if(bateau==null)
+			return false;
+		return true;
+	}
+
 	public void addBateau(Bateau b){
 		bateau=b;
+                hadBateau=true;
 	}
+        
+        public boolean hadBateau(){
+            return hadBateau;
+        }
 
 }
