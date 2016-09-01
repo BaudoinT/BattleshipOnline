@@ -31,12 +31,15 @@ public class Saisir {
 		boolean choixValide=false;
 		do{
 			choix= MaSaisie();
-			if ((choix.charAt(0) >= 'a' && choix.charAt(0) <= 'j') && (choix.charAt(1) >= '1' && choix.charAt(1) <= '9') && choix.length() == 2) {
+			if (choix.length() == 2 && (choix.charAt(0) >= 'a' && choix.charAt(0) <= 'j') && (choix.charAt(1) >= '1' && choix.charAt(1) <= '9') ) {
 				l = choix.charAt(0)-96;
 				c = choix.charAt(1)-48;
 				choixValide=true;
 			}
-		}while(choixValide==false);
+			if(!choixValide){
+				System.out.println("Entrée invalide, recommencez !");
+			}
+		}while(!choixValide);
 	}
 	
 	public int choixListe(int max){
@@ -59,10 +62,6 @@ public class Saisir {
                             return 1;
 			}else if (choix.equals("Reprendre")) {
                             return 2;
-			}else if (choix.equals("Abandon")) {
-                            return 3;
-			}else if (choix.equals("Aide")) {
-                            return 4;
 			}
 			System.out.println("L'entrée saisie est invalide !");
 		}while(true);
