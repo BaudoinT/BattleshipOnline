@@ -3,7 +3,7 @@ package bataillenaval;
 public class Cellule {
 
 	private boolean toucher, hadBateau=false;
-	private Bateau bateau=new Bateau(3);
+	private Bateau bateau;
 
 	public Cellule(boolean toucher) {
 		this.toucher = toucher;
