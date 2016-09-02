@@ -20,7 +20,7 @@ public class Jeu {
         System.out.println("4: Croiseur (4 cases)");
         System.out.println("5: Porte-avion (5 cases)");
 
-        int longueurBat[] = new int[]{2, 3, 3, 4, 5};
+        int longueurBat[] = new int[]{2/*, 3, 3, 4, 5*/};
         String nomBat[] = new String[]{"Torpilleur", "Contre-torpilleur", "Sous-marin", "Croiseur", "Porte-avion"};
 
         for (int i = 0; i < longueurBat.length; i++) {
