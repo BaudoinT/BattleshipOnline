@@ -31,10 +31,17 @@ public class Saisir {
 		boolean choixValide=false;
 		do{
 			choix= MaSaisie();
-			if (choix.length() == 2 && (choix.charAt(0) >= 'a' && choix.charAt(0) <= 'j') && (choix.charAt(1) >= '1' && choix.charAt(1) <= '9') ) {
+			if ((choix.length() == 2 || choix.length() ==  3) && (choix.charAt(0) >= 'a' && choix.charAt(0) <= 'j') && (choix.charAt(1) >= '1' && choix.charAt(1) <= '9') ) {
 				l = choix.charAt(0)-97;
-				c = choix.charAt(1)-49;
-				choixValide=true;
+                                if(choix.length() == 2){
+                                    c = choix.charAt(1)-49;
+                                    choixValide=true;
+                                }else if (choix.charAt(2) =='0'){
+                                    c=9;
+                                    choixValide=true;
+                                }else{ 
+                                    choixValide=false;
+                                }
 			}
 			if(!choixValide){
 				System.out.println("Entrée invalide, recommencez !");
@@ -54,18 +61,6 @@ public class Saisir {
 		}while(true);
 	}
 	
-        public int menu(){
-            String choix;
-		do{
-			choix = MaSaisie();
-			if (choix.equals("jouer")) {
-                            return 1;
-			}else if (choix.equals("reprendre")) {
-                            return 2;
-			}
-			System.out.println("L'entrée saisie est invalide !");
-		}while(true);
-        }
         
         
 	public int getLigne() {

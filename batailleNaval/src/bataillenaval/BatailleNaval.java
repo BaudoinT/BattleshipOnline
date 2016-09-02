@@ -22,9 +22,12 @@ public class BatailleNaval {
        
 
         System.out.println(constantes.HELP);
-        System.out.println("Entrez JOUER pour debuter une nouvelle partie.");
+        System.out.println("Que voulez vous faire ?");
+        System.out.println("1: Jouer en partie local");
+        System.out.println("2: Jouer en partie online");
+        System.out.println("3: Rejoindre une partie online");
         Saisir saisie = new Saisir();
-        if(saisie.menu() == 1){
+        if(saisie.choixListe(3) == 1){
              Jeu jeu= new Jeu();
              jeu.lancerPartie();
         }
