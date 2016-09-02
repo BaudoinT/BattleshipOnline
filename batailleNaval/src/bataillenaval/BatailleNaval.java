@@ -18,13 +18,20 @@ public class BatailleNaval {
     public static void main(String[] args) {
 
         // TODO code application logic here
-        Plateau plat=new Plateau();
-        Affichage aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
+    
+       
 
         System.out.println(constantes.HELP);
-        System.out.println("Entrez JOUER pour debuter une nouvelle partie.");
-        new Saisie();
-     
-        aff.affichagePlateau(0);
+        System.out.println("Que voulez vous faire ?");
+        System.out.println("1: Jouer en partie local");
+        System.out.println("2: Jouer en partie online");
+        System.out.println("3: Rejoindre une partie online");
+        Saisir saisie = new Saisir();
+        if(saisie.choixListe(3) == 1){
+             Jeu jeu= new Jeu();
+             jeu.lancerPartie();
+        }
+
+       
     }
 }
