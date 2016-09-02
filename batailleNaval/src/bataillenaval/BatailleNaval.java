@@ -67,6 +67,9 @@ public class BatailleNaval {
 
             ToucheCoule touche = new ToucheCoule(plateau, aff);
             do {
+                
+                partie = jeu.fM.read();
+                plateau = partie.getPlateau();
                 aff.affichagePlateau(0);
                 touche.Attaque(0);
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
@@ -97,7 +100,7 @@ public class BatailleNaval {
             Partie partie;
             partie = jeu.fM.read();
             Plateau plateau = partie.getPlateau();
-            Affichage aff = new Affichage(plateau.getplateauJ1(), plateau.getplateauJ2());
+            Affichage aff = new Affichage(plateau.getplateauJ2(), plateau.getplateauJ1());
             String gameName = partie.getName();
             aff.affichagePlateau(1);
             jeu.choixBateauAPlacer(1, plateau, aff);
@@ -108,7 +111,6 @@ public class BatailleNaval {
             touche = new ToucheCoule(plateau, aff);
 
             do {
-                aff.affichagePlateau(1);
                 while (!jeu.fM.isMyTurn()) {
                     try {
                         Thread.sleep(5000);
