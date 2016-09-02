@@ -21,7 +21,7 @@ public class Affichage {
     }
 
     public void affichagePlateau(int tour) {
-        System.out.println("\n\n");
+        System.out.println("\n\nPlateau du joueur "+(2-tour));
 
         this.affichageHautPlateau();
 
@@ -67,7 +67,7 @@ public class Affichage {
             }
             System.out.println("\u001B[30;47m");
         }
-
+        System.out.println("\nPlateau du joueur "+(1-tour));
         this.affichageHautPlateau();
         for (int i = 0; i < 10; i++) {
 
@@ -120,6 +120,7 @@ public class Affichage {
     }
 
     private void affichageHautPlateau() {
+        
         for (int j = 0; j < 11; j++) {
             System.out.print(" ___");
         }
