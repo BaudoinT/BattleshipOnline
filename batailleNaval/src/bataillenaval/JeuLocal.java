@@ -5,7 +5,7 @@ public class JeuLocal {
 
 	private Plateau plat;
 	private Affichage aff;
-	private int tourJoueur;
+	private int tourJoueur=0;
 	private Jeu jeu;
 	
 	public void lancerPartie(){
@@ -16,23 +16,26 @@ public class JeuLocal {
 		plat=new Plateau();
 		aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
 		aff.affichagePlateau(0);
-
-		tourJoueur=0;
+		
 		System.out.println("Au tour du joueur 1 de placer ses bateaux !");
 		jeu.choixBateauAPlacer(tourJoueur, plat, aff);	
 		System.out.println("Au tour du joueur 2 de placer ses bateaux !");
-		tourJoueur=(tourJoueur++)%2;
+		tourJoueur=(tourJoueur+1)%2;
+
 		jeu.choixBateauAPlacer(tourJoueur, plat, aff);
 
 
 		//J1 joue (annonce touche coule)
-		new ToucheCoule(plat, aff).Attaque(tourJoueur);
-                
-		//test partie fini et annonce gagnant
-		//J2 joue ---------------------
-		//test partie fini et annonce gagnant
 
-		//retour menu
+	
+                ToucheCoule touche=new ToucheCoule(plat, aff);
+
+                
+
+                do{
+		touche.Attaque(tourJoueur);
+                tourJoueur=(tourJoueur++)%2;
+                }while(!touche.gagne(tourJoueur));
 
 	}
 }
