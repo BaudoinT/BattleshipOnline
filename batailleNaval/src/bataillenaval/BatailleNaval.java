@@ -1,5 +1,5 @@
 /*
-  * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -35,27 +35,27 @@ public class BatailleNaval {
         Saisir saisie = new Saisir();
         int choix = saisie.choixListe(3);
         if (choix == 1) {
-            Jeu jeu = new Jeu();
-             jeu.lancerPartie();
+            JeuLocal jeulocal = new JeuLocal();
+            jeulocal.lancerPartie();
         } else if (choix == 2) {
             String gameName = fM.createNewGame();
             while (!fM.isMyTurn()) {
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException ex) {
-        }
+                }
             }
             Plateau plateau = new Plateau();
 
             Partie partie = new Partie(plateau, gameName, System.getProperty("user.name"), "unknown");
-       
+
             fM.write(gameName, new GsonBuilder().create().toJson(partie));
-            
+
             
         } else if (choix == 3) {
             fM.joinGame();
 
-    }
+        }
 
-}
+    }
 }
