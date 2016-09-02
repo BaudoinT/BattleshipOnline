@@ -81,7 +81,7 @@ public class BatailleNaval {
             Plateau plateau = partie.getPlateau();
             Affichage aff = new Affichage(plateau.getplateauJ1(), plateau.getplateauJ2());
             String gameName = partie.getName();
-            
+            aff.affichagePlateau(1);
             jeu.choixBateauAPlacer(1, plateau, aff);
             
             
