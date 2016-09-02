@@ -37,7 +37,7 @@ public class Saisir {
                                     c = choix.charAt(1)-49;
                                     choixValide=true;
                                 }else if (choix.charAt(2) =='0'){
-                                    c=10;
+                                    c=9;
                                     choixValide=true;
                                 }else{ 
                                     choixValide=false;
