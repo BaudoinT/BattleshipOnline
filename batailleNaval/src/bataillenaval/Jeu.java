@@ -4,22 +4,22 @@ public class Jeu {
 
 	private Plateau plat;
 	private Affichage aff;
-        
+	int tourJoueur;
 	public void lancerPartie(){
-		
+
 		//afhicherPlateau
 		plat=new Plateau();
 		aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
 		aff.affichagePlateau(0);
 
-		//Placement bateau J1
+		tourJoueur=0;
 		choixBateauAPlacer();
-//		Affichage aff2=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
-//		aff2.affichagePlateau(0);
-		//Placement bateau J2
+		tourJoueur=(tourJoueur+1)%2;
+		choixBateauAPlacer();
+
 
 		//J1 joue (annonce touche coule)
-                new ToucheCoule(plat, aff);
+		new ToucheCoule(plat, aff);
 		//test partie fini et annonce gagnant
 		//J2 joue ---------------------
 		//test partie fini et annonce gagnant
@@ -42,8 +42,8 @@ public class Jeu {
 		for(int i=0; i<longueurBat.length; i++){
 			System.out.println("Où voulez-vous placer le "+nomBat[i]+" ("+longueurBat[i]+" cases) ?");
 			emplacementBateau(longueurBat[i]);
-		aff.affichagePlateau(0);
-                }
+			aff.affichagePlateau(0);
+		}
 	}
 
 	public void emplacementBateau(int longueur){
@@ -69,29 +69,52 @@ public class Jeu {
 	}
 
 	public boolean verifEtPlacement(int longueur, int posX, int posY, String sens, Bateau bateau){
-		posY--;
-		posX--;
 		if(sens.equals("horizontal")){
 			if(posY+longueur <= 10){
-				for(int i=posY; i<posY+longueur; i++){
-					if(plat.getplateauJ1()[posX][i].hasBateau()){
-						return false;
+
+
+				if(tourJoueur==0){
+					for(int i=posY; i<posY+longueur; i++){
+						if(plat.getplateauJ1()[posX][i].hasBateau()){
+							return false;
+						}
 					}
-				}
-				for(int i=posY; i<posY+longueur; i++){
-					plat.getplateauJ1()[posX][i].addBateau(bateau);
+					for(int i=posY; i<posY+longueur; i++){
+						plat.getplateauJ1()[posX][i].addBateau(bateau);
+					}
+				}else if(tourJoueur==1){
+					for(int i=posY; i<posY+longueur; i++){
+						if(plat.getplateauJ2()[posX][i].hasBateau()){
+							return false;
+						}
+					}
+					for(int i=posY; i<posY+longueur; i++){
+						plat.getplateauJ2()[posX][i].addBateau(bateau);
+					}
 				}
 				return true;
 			}
 		}else if (sens.equals("vertical")){
 			if(posX+longueur <= 10){	
-				for(int i=posX; i<posX+longueur; i++){
-					if(plat.getplateauJ1()[i][posY].hasBateau()){
-						return false;
+
+				if(tourJoueur==0){
+					for(int i=posX; i<posX+longueur; i++){
+						if(plat.getplateauJ1()[i][posY].hasBateau()){
+							return false;
+						}
 					}
-				}
-				for(int i=posX; i<posX+longueur; i++){
-					plat.getplateauJ1()[i][posY].addBateau(bateau);
+					for(int i=posX; i<posX+longueur; i++){
+						plat.getplateauJ1()[i][posY].addBateau(bateau);
+					}
+				}else if(tourJoueur==1){
+					for(int i=posX; i<posX+longueur; i++){
+						if(plat.getplateauJ2()[i][posY].hasBateau()){
+							return false;
+						}
+					}
+					for(int i=posX; i<posX+longueur; i++){
+						plat.getplateauJ2()[i][posY].addBateau(bateau);
+					}
 				}
 				return true;
 			}
