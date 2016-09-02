@@ -32,7 +32,7 @@ public class Cellule {
 			return false;
 		return true;
 	}
-
+        
 	public void addBateau(Bateau b){
 		bateau=b;
                 hadBateau=true;
