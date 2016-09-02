@@ -32,8 +32,8 @@ public class Saisir {
 		do{
 			choix= MaSaisie();
 			if (choix.length() == 2 && (choix.charAt(0) >= 'a' && choix.charAt(0) <= 'j') && (choix.charAt(1) >= '1' && choix.charAt(1) <= '9') ) {
-				l = choix.charAt(0)-96;
-				c = choix.charAt(1)-48;
+				l = choix.charAt(0)-97;
+				c = choix.charAt(1)-49;
 				choixValide=true;
 			}
 			if(!choixValide){
@@ -58,9 +58,9 @@ public class Saisir {
             String choix;
 		do{
 			choix = MaSaisie();
-			if (choix.equals("Jouer")) {
+			if (choix.equals("jouer")) {
                             return 1;
-			}else if (choix.equals("Reprendre")) {
+			}else if (choix.equals("reprendre")) {
                             return 2;
 			}
 			System.out.println("L'entrée saisie est invalide !");

@@ -23,10 +23,12 @@ public class BatailleNaval {
 
         System.out.println(constantes.HELP);
         System.out.println("Entrez JOUER pour debuter une nouvelle partie.");
-        new Saisie();
-     
+        Saisir saisie = new Saisir();
+        if(saisie.menu() == 1){
+             Jeu jeu= new Jeu();
+             jeu.lancerPartie();
+        }
 
-        Jeu jeu= new Jeu();
-        jeu.lancerPartie();
+       
     }
 }
