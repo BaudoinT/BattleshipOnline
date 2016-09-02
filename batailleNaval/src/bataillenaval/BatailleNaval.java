@@ -66,7 +66,7 @@ public class BatailleNaval {
                 } catch (InterruptedException ex) {
                 }
             }
-
+            partie = jeu.fM.read();
             ToucheCoule touche = new ToucheCoule(plateau, aff);
             do {
                 
