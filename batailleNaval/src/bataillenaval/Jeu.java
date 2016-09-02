@@ -13,13 +13,14 @@ public class Jeu {
 		aff.affichagePlateau(0);
 
 		tourJoueur=0;
-		choixBateauAPlacer();
+		choixBateauAPlacer(tourJoueur);
 		tourJoueur=(tourJoueur+1)%2;
-		choixBateauAPlacer();
+		choixBateauAPlacer(tourJoueur);
 
 
 		//J1 joue (annonce touche coule)
-		new ToucheCoule(plat, aff);
+		new ToucheCoule(plat, aff).Attaque(tourJoueur);
+                
 		//test partie fini et annonce gagnant
 		//J2 joue ---------------------
 		//test partie fini et annonce gagnant
@@ -28,7 +29,7 @@ public class Jeu {
 
 	}
 
-	public void choixBateauAPlacer(){
+	public void choixBateauAPlacer(int tour){
 		System.out.println("Vous avez 5 bateaux à placer: ");
 		System.out.println("1: Torpilleur (2 cases)");
 		System.out.println("2: Contre-torpilleur (3 cases)");
@@ -42,7 +43,7 @@ public class Jeu {
 		for(int i=0; i<longueurBat.length; i++){
 			System.out.println("Où voulez-vous placer le "+nomBat[i]+" ("+longueurBat[i]+" cases) ?");
 			emplacementBateau(longueurBat[i]);
-			aff.affichagePlateau(0);
+			aff.affichagePlateau(tour);
 		}
 	}
 

@@ -12,20 +12,24 @@ public class ToucheCoule {
     
     private ArrayList<Cellule[][]> plateaux=new ArrayList<>();
     private Saisir saisie;
+    private Affichage aff;
     
     public ToucheCoule(Plateau plateau,Affichage aff){
        plateaux.add(plateau.getplateauJ1());
        plateaux.add(plateau.getplateauJ2());
-        System.out.println("Choisis une case a attaquer: ");
-       
        saisie=new Saisir();
+       this.aff=aff;
+    }
+    
+    public void Attaque(int tour){
+       System.out.println("Choisis une case a attaquer: ");              
        saisie.choixCase();
-       if(plateau.getplateauJ2()[saisie.getLigne()][saisie.getCol()].setToucher()){
-           aff.affichagePlateau(0);
+       if(plateaux.get(1-tour)[saisie.getLigne()][saisie.getCol()].setToucher()){
+           aff.affichagePlateau(tour);
            System.out.println("Tu as touché!");
            // ajout 
         } else {
-           aff.affichagePlateau(0);
+           aff.affichagePlateau(tour);
            System.out.println("A l'eau!");
        }
     }
