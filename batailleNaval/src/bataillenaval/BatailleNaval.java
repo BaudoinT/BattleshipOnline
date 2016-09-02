@@ -28,7 +28,7 @@ public class BatailleNaval {
         System.out.println("3: Rejoindre une partie online");
         Saisir saisie = new Saisir();
         if(saisie.choixListe(3) == 1){
-             Jeu jeu= new Jeu();
+             JeuLocal jeu= new JeuLocal();
              jeu.lancerPartie();
         }
 
