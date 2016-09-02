@@ -15,7 +15,6 @@ public class JeuLocal {
 		//afhicherPlateau
 		plat=new Plateau();
 		aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
-		aff.affichagePlateau(0);
 		
 		System.out.println("Au tour du joueur 1 de placer ses bateaux !");
 		jeu.choixBateauAPlacer(tourJoueur, plat, aff);	

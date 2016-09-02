@@ -22,7 +22,7 @@ public class ToucheCoule {
     }
     
     public void Attaque(int tour){
-       System.out.println("Choisis une case a attaquer: ");              
+       System.out.println("\nA l'autre joueur !\nChoisis une case a attaquer: ");              
        saisie.choixCase();
        if(plateaux.get(1-tour)[saisie.getLigne()][saisie.getCol()].setToucher()){
            aff.affichagePlateau(tour);
