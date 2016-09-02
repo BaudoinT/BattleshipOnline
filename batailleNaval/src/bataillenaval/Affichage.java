@@ -21,7 +21,7 @@ public class Affichage {
     }
 
     public void affichagePlateau(int tour) {
-        System.out.println("\n\nPlateau du joueur ");
+        System.out.println("\n\nPlateau du joueur adverse");
 
         this.affichageHautPlateau();
 
@@ -67,7 +67,7 @@ public class Affichage {
             }
             System.out.println("\u001B[30;47m");
         }
-        System.out.println("\nPlateau du joueur ");
+        System.out.println("\nVotre plateau");
         this.affichageHautPlateau();
         for (int i = 0; i < 10; i++) {
 
@@ -77,10 +77,10 @@ public class Affichage {
             for (int x = 0; x < 9; x++) {
                 if (plateaux.get(tour)[i][x].bateauCoule()) {
                     System.out.print("\u001B[30;42m   \u001B[30;44m|");
-                } else if (plateaux.get(tour)[i][x].hasBateau()) {
-                    System.out.print("\u001B[30;43m   \u001B[30;44m|");
                 } else if (plateaux.get(tour)[i][x].isToucher() && plateaux.get(tour)[i][x].hasBateau()) {
                     System.out.print("\u001B[30;41m   \u001B[30;44m|");
+                } else if (plateaux.get(tour)[i][x].hasBateau()) {
+                    System.out.print("\u001B[30;43m   \u001B[30;44m|");
                 } else if (plateaux.get(tour)[i][x].isToucher()) {
                     System.out.print("\u001B[30;47m   \u001B[30;44m|");
                 } else {
@@ -90,10 +90,10 @@ public class Affichage {
             }
             if (plateaux.get(tour)[i][9].bateauCoule()) {
                 System.out.print("\u001B[30;42m   \u001B[30;44m|\u001B[30;47m");
-            } else if (plateaux.get(tour)[i][9].hasBateau()) {
-                System.out.print("\u001B[30;43m   \u001B[30;44m|\u001B[30;47m");
             } else if (plateaux.get(tour)[i][9].isToucher() && plateaux.get(tour)[i][9].hasBateau()) {
                 System.out.print("\u001B[30;41m   \u001B[30;44m|\u001B[30;47m");
+            } else if (plateaux.get(tour)[i][9].hasBateau()) {
+                System.out.print("\u001B[30;43m   \u001B[30;44m|\u001B[30;47m");
             } else if (plateaux.get(tour)[i][9].isToucher()) {
                 System.out.print("\u001B[30;47m   \u001B[30;44m|\u001B[30;47m");
             } else {
@@ -105,10 +105,10 @@ public class Affichage {
             for (int j = 0; j < 10; j++) {
                 if (plateaux.get(tour)[i][j].bateauCoule()) {
                     System.out.print("\u001B[30;42m___\u001B[30;44m|");
-                } else if (plateaux.get(tour)[i][j].hasBateau()) {
-                    System.out.print("\u001B[30;43m___\u001B[30;44m|");
                 } else if (plateaux.get(tour)[i][j].isToucher() && plateaux.get(tour)[i][j].hasBateau()) {
                     System.out.print("\u001B[30;41m___\u001B[30;44m|");
+                } else if (plateaux.get(tour)[i][j].hasBateau()) {
+                    System.out.print("\u001B[30;43m___\u001B[30;44m|"); 
                 } else if (plateaux.get(tour)[i][j].isToucher()) {
                     System.out.print("\u001B[30;47m___\u001B[30;44m|");
                 } else {
