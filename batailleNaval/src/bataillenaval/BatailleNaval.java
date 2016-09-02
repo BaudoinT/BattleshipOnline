@@ -6,6 +6,8 @@
 
 package bataillenaval;
 
+import reseau.FileManager;
+
 /**
  *
  * @author lalleaul
@@ -26,12 +28,23 @@ public class BatailleNaval {
         System.out.println("1: Jouer en partie local");
         System.out.println("2: Jouer en partie online");
         System.out.println("3: Rejoindre une partie online");
+        FileManager fM = new FileManager();
         Saisir saisie = new Saisir();
-        if(saisie.choixListe(3) == 1){
+        int choix = saisie.choixListe(3);
+        if(choix == 1){
              Jeu jeu= new Jeu();
              jeu.lancerPartie();
         }
-
+        else if (choix == 2){
+            String gameName = fM.createNewGame();
+            //créer plateaux
+            //attendre l'autre joueur
+            //positionner bateaux
+            //Jouer
+        }
+        else if(choix == 3){
+            
+        }
        
     }
 }
