@@ -65,6 +65,24 @@ public class BatailleNaval {
                 }
             }
 
+            ToucheCoule touche = new ToucheCoule(plateau, aff);
+            do {
+                touche.Attaque(0);
+                jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
+                
+                while (!jeu.fM.isMyTurn()) {
+                    try {
+                        Thread.sleep(5000);
+                        System.out.println("Attente j2");
+                    } catch (InterruptedException ex) {
+                    }
+                }
+            } while (touche.gagne(0));
+
+            
+            
+            
+            
         } else if (choix == 3) {
             Jeu jeu = new Jeu();
             jeu.fM.joinGame();
@@ -83,10 +101,22 @@ public class BatailleNaval {
             String gameName = partie.getName();
             aff.affichagePlateau(1);
             jeu.choixBateauAPlacer(1, plateau, aff);
-            
-            
+
             jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
 
+            ToucheCoule touche = new ToucheCoule(plateau, aff);
+            
+            do {
+                while (!jeu.fM.isMyTurn()) {
+                    try {
+                        Thread.sleep(5000);
+                        System.out.println("Attente j1");
+                    } catch (InterruptedException ex) {
+                    }
+                }
+                touche.Attaque(1);
+                jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
+            } while (touche.gagne(1));
         }
 
     }
