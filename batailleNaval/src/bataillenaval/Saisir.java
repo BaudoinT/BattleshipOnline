@@ -65,10 +65,12 @@ public class Saisir {
             String choix;
 		do{
 			choix = MaSaisie();
-			if (choix.equals("jouer")) {
+			if (choix.equals("jouer local")) {
                             return 1;
-			}else if (choix.equals("reprendre")) {
+			}else if (choix.equals("jouer online")) {
                             return 2;
+			}else if (choix.equals("rejoindre online")) {
+                return 2;
 			}
 			System.out.println("L'entrée saisie est invalide !");
 		}while(true);
