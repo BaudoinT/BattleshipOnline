@@ -34,7 +34,7 @@ public class ToucheCoule {
         }
         aff.affichagePlateau(tour);
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException ex){
         
         } 

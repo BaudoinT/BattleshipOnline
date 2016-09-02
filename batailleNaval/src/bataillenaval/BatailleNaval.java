@@ -80,13 +80,11 @@ public class BatailleNaval {
                     } catch (InterruptedException ex) {
                     }
                 }
+                partie = jeu.fM.read();
+                plateau = partie.getPlateau();
                 aff.affichagePlateau(0);
             } while (touche.gagne(0));
 
-            
-            
-            
-            
         } else if (choix == 3) {
             Jeu jeu = new Jeu();
             jeu.fM.joinGame();
@@ -108,8 +106,9 @@ public class BatailleNaval {
 
             jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
 
-            ToucheCoule touche = new ToucheCoule(plateau, aff);
-            
+            ToucheCoule touche;
+            touche = new ToucheCoule(plateau, aff);
+
             do {
                 aff.affichagePlateau(1);
                 while (!jeu.fM.isMyTurn()) {
@@ -119,7 +118,10 @@ public class BatailleNaval {
                     } catch (InterruptedException ex) {
                     }
                 }
+                partie = jeu.fM.read();
+                plateau = partie.getPlateau();
                 touche.Attaque(1);
+
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
                 aff.affichagePlateau(1);
             } while (touche.gagne(1));
