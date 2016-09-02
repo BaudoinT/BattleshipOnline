@@ -5,6 +5,7 @@ public class Jeu {
 	private Plateau plat;
 	private Affichage aff;
 	int tourJoueur;
+	
 	public void lancerPartie(){
 
 		//afhicherPlateau
@@ -29,6 +30,7 @@ public class Jeu {
 	}
 
 	public void choixBateauAPlacer(){
+		System.out.println("Au tour du joueur "+tourJoueur+1+" de placer ses bateaux !");
 		System.out.println("Vous avez 5 bateaux à placer: ");
 		System.out.println("1: Torpilleur (2 cases)");
 		System.out.println("2: Contre-torpilleur (3 cases)");
@@ -76,6 +78,7 @@ public class Jeu {
 				if(tourJoueur==0){
 					for(int i=posY; i<posY+longueur; i++){
 						if(plat.getplateauJ1()[posX][i].hasBateau()){
+							System.out.println("Le bateau ne peut pas être placé ici, recommencez !");
 							return false;
 						}
 					}
@@ -85,6 +88,7 @@ public class Jeu {
 				}else if(tourJoueur==1){
 					for(int i=posY; i<posY+longueur; i++){
 						if(plat.getplateauJ2()[posX][i].hasBateau()){
+							System.out.println("Le bateau ne peut pas être placé ici, recommencez !");
 							return false;
 						}
 					}
