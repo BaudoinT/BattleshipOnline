@@ -54,7 +54,7 @@ public class Saisir {
 		String caracMax=""+max;
 		do{
 			choix = MaSaisie();
-			if ((choix.charAt(0) >= '1' && choix.charAt(0) <= caracMax.charAt(0)) && choix.length() == 1) {
+			if (choix.length() == 1 && (choix.charAt(0) >= '1' && choix.charAt(0) <= caracMax.charAt(0))) {
 				return Integer.parseInt(choix);
 			}
 			System.out.println("L'entrée saisie est invalide !");
