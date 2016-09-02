@@ -4,36 +4,9 @@ public class Jeu {
 
 	private Plateau plat;
 	private Affichage aff;
-	int tourJoueur;
 	
-	public void lancerPartie(){
-
-		//afhicherPlateau
-		plat=new Plateau();
-		aff=new Affichage(plat.getplateauJ1(),plat.getplateauJ2());
-		aff.affichagePlateau(0);
-
-		tourJoueur=0;
-		choixBateauAPlacer(tourJoueur);
-		tourJoueur=(tourJoueur+1)%2;
-		choixBateauAPlacer(tourJoueur);
-
-
-		//J1 joue (annonce touche coule)
-		new ToucheCoule(plat, aff).Attaque(tourJoueur);
-                
-		//test partie fini et annonce gagnant
-		//J2 joue ---------------------
-		//test partie fini et annonce gagnant
-
-		//retour menu
-
-	}
-
-
-	public void choixBateauAPlacer(int tour){
-		System.out.println("Au tour du joueur "+tourJoueur+1+" de placer ses bateaux !");
-
+	
+	public void choixBateauAPlacer(int tourJ){
 		System.out.println("Vous avez 5 bateaux à placer: ");
 		System.out.println("1: Torpilleur (2 cases)");
 		System.out.println("2: Contre-torpilleur (3 cases)");
@@ -46,12 +19,12 @@ public class Jeu {
 
 		for(int i=0; i<longueurBat.length; i++){
 			System.out.println("Où voulez-vous placer le "+nomBat[i]+" ("+longueurBat[i]+" cases) ?");
-			emplacementBateau(longueurBat[i]);
-			aff.affichagePlateau(tour);
+			emplacementBateau(longueurBat[i], tourJ);
+			aff.affichagePlateau(tourJ);
 		}
 	}
 
-	public void emplacementBateau(int longueur){
+	public void emplacementBateau(int longueur, int tourJ){
 		Bateau bateau=new Bateau(longueur);
 		Saisir s;
 		String sens="";
@@ -67,18 +40,18 @@ public class Jeu {
 				sens="vertical";
 			}
 
-		}while(!verifEtPlacement(longueur, s.getLigne(), s.getCol(), sens, bateau));
+		}while(!verifEtPlacement(longueur, s.getLigne(), s.getCol(), sens, bateau, tourJ));
 
 
 
 	}
 
-	public boolean verifEtPlacement(int longueur, int posX, int posY, String sens, Bateau bateau){
+	public boolean verifEtPlacement(int longueur, int posX, int posY, String sens, Bateau bateau, int tourJ){
 		if(sens.equals("horizontal")){
 			if(posY+longueur <= 10){
 
 
-				if(tourJoueur==0){
+				if(tourJ==0){
 					for(int i=posY; i<posY+longueur; i++){
 						if(plat.getplateauJ1()[posX][i].hasBateau()){
 							System.out.println("Le bateau ne peut pas être placé ici, recommencez !");
@@ -88,7 +61,7 @@ public class Jeu {
 					for(int i=posY; i<posY+longueur; i++){
 						plat.getplateauJ1()[posX][i].addBateau(bateau);
 					}
-				}else if(tourJoueur==1){
+				}else if(tourJ==1){
 					for(int i=posY; i<posY+longueur; i++){
 						if(plat.getplateauJ2()[posX][i].hasBateau()){
 							System.out.println("Le bateau ne peut pas être placé ici, recommencez !");
@@ -104,7 +77,7 @@ public class Jeu {
 		}else if (sens.equals("vertical")){
 			if(posX+longueur <= 10){	
 
-				if(tourJoueur==0){
+				if(tourJ==0){
 					for(int i=posX; i<posX+longueur; i++){
 						if(plat.getplateauJ1()[i][posY].hasBateau()){
 							return false;
@@ -113,7 +86,7 @@ public class Jeu {
 					for(int i=posX; i<posX+longueur; i++){
 						plat.getplateauJ1()[i][posY].addBateau(bateau);
 					}
-				}else if(tourJoueur==1){
+				}else if(tourJ==1){
 					for(int i=posX; i<posX+longueur; i++){
 						if(plat.getplateauJ2()[i][posY].hasBateau()){
 							return false;
@@ -131,5 +104,9 @@ public class Jeu {
 		}
 		return false;
 
+	}
+	
+	public Plateau getPlat(){
+		return plat;
 	}
 }
