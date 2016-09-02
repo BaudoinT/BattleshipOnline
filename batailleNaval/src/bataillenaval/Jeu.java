@@ -4,7 +4,7 @@ public class Jeu {
 
     private Plateau plat;
     private Affichage aff;
-    int tourJoueur;
+    int tourJoueur=0;
 
     public void lancerPartie() {
 
@@ -13,15 +13,16 @@ public class Jeu {
         aff = new Affichage(plat.getplateauJ1(), plat.getplateauJ2());
         aff.affichagePlateau(0);
 
-        tourJoueur = 0;
         choixBateauAPlacer(tourJoueur);
         tourJoueur = (tourJoueur + 1) % 2;
         choixBateauAPlacer(tourJoueur);
 
         //J1 joue (annonce touche coule)
         ToucheCoule touche = new ToucheCoule(plat, aff);
+        do{
         touche.Attaque(tourJoueur);
-
+        tourJoueur = (tourJoueur + 1) % 2;
+        }while(!touche.gagne(tourJoueur));
 		//test partie fini et annonce gagnant
         //J2 joue ---------------------
         //test partie fini et annonce gagnant
