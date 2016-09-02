@@ -21,7 +21,7 @@ public class Affichage {
     }
 
     public void affichagePlateau(int tour) {
-        System.out.println("\n\nPlateau du joueur "+(2-tour));
+        System.out.println("\n\nPlateau du joueur ");
 
         this.affichageHautPlateau();
 
@@ -67,7 +67,7 @@ public class Affichage {
             }
             System.out.println("\u001B[30;47m");
         }
-        System.out.println("\nPlateau du joueur "+(1-tour));
+        System.out.println("\nPlateau du joueur ");
         this.affichageHautPlateau();
         for (int i = 0; i < 10; i++) {
 
@@ -75,7 +75,7 @@ public class Affichage {
 
             System.out.print("|\u001B[30;40m");
             for (int x = 0; x < 9; x++) {
-                if (plateaux.get(1 - tour)[i][x].bateauCoule()) {
+                if (plateaux.get(tour)[i][x].bateauCoule()) {
                     System.out.print("\u001B[30;42m   \u001B[30;44m|");
                 } else if (plateaux.get(tour)[i][x].hasBateau()) {
                     System.out.print("\u001B[30;43m   \u001B[30;44m|");
@@ -88,7 +88,7 @@ public class Affichage {
                 }
 
             }
-            if (plateaux.get(1 - tour)[i][9].bateauCoule()) {
+            if (plateaux.get(tour)[i][9].bateauCoule()) {
                 System.out.print("\u001B[30;42m   \u001B[30;44m|\u001B[30;47m");
             } else if (plateaux.get(tour)[i][9].hasBateau()) {
                 System.out.print("\u001B[30;43m   \u001B[30;44m|\u001B[30;47m");
@@ -103,7 +103,7 @@ public class Affichage {
             System.out.print("\n|___|");
 
             for (int j = 0; j < 10; j++) {
-                if (plateaux.get(1 - tour)[i][j].bateauCoule()) {
+                if (plateaux.get(tour)[i][j].bateauCoule()) {
                     System.out.print("\u001B[30;42m___\u001B[30;44m|");
                 } else if (plateaux.get(tour)[i][j].hasBateau()) {
                     System.out.print("\u001B[30;43m___\u001B[30;44m|");
