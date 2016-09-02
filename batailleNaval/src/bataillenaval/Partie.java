@@ -21,5 +21,12 @@ public class Partie {
         user1 = u1;
         user2 = u2;
     }
+    
+    public Plateau getPlateau(){
+        return p;
+    }
+    public String getName(){
+        return nom;
+    }
 
 }

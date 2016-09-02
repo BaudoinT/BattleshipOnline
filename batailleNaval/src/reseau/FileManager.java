@@ -6,6 +6,7 @@
 package reseau;
 
 import bataillenaval.Affichage;
+import bataillenaval.Partie;
 import bataillenaval.Plateau;
 import bataillenaval.constantes;
 import com.google.gson.Gson;
@@ -113,15 +114,17 @@ public class FileManager {
         this.lastModified = this.getUpdateTime();
     }
 
-    public void read() {
+    public Partie read() {
         Gson gson = new Gson();
+        Partie p = null;
         try {
             //TODO : Changer Plateau par objet de la partie
-            Plateau plateau = gson.fromJson(new FileReader(constantes.PATH + nameGame), Plateau.class);
+            p = gson.fromJson(new FileReader(constantes.PATH + nameGame), Partie.class);
         } catch (FileNotFoundException e) {
             System.out.println("Erreur : " + e.getMessage());
 
         }
+        return p;
     }
 
     /**
