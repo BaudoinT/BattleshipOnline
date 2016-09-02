@@ -40,6 +40,7 @@ public class testLouis {
         System.out.println("Nom de fichier : ");
         scanner = new Scanner(System.in);
         nomFichier = scanner.nextLine();
+        fM.joinGame();
 
     }
 }

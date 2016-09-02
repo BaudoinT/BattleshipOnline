@@ -72,8 +72,30 @@ public class FileManager {
         return this.nameGame;
     }
 
+    public String joinGame() {
+        System.out.println("Saisir nom de partie : ");
+        Scanner scanner = new Scanner(System.in);
+        Path f;
+        this.nameGame = scanner.nextLine();
+        f = Paths.get(this.p, this.nameGame);
+        while (!Files.exists(f)) {
+            System.out.println("La partie n'existe pas...\nSaisir nom de partie : ");
+            this.nameGame = scanner.nextLine();
+            f = Paths.get(this.p, this.nameGame);
+        }
+        System.out.println("Partie Rejointe !");
+        try {
+            this.write(nameGame, this.user);
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la lecture : " + e.getMessage());
+        }
+        this.lastModified = this.getUpdateTime();
+        return this.nameGame;
+    }
+
     /**
      * Ecrit le texte dans le fichier fileName dans le dossier public
+     *
      * @param fileName
      * @param texte
      */
@@ -98,7 +120,7 @@ public class FileManager {
             Plateau plateau = gson.fromJson(new FileReader(constantes.PATH + nameGame), Plateau.class);
         } catch (FileNotFoundException e) {
             System.out.println("Erreur : " + e.getMessage());
-            
+
         }
     }
 
