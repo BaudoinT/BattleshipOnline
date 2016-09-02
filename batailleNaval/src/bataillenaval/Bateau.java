@@ -3,7 +3,7 @@ package bataillenaval;
 public class Bateau {
 	
 	private int nbVie;
-        private boolean coule=false;
+        private boolean coule;
 	
 	public Bateau(int longueur){
 		nbVie=longueur;
