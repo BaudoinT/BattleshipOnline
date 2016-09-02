@@ -36,7 +36,7 @@ public class Saisir {
                                 if(choix.length() == 2){
                                     c = choix.charAt(1)-49;
                                     choixValide=true;
-                                }else if (choix.charAt(3) =='0'){
+                                }else if (choix.charAt(2) =='0'){
                                     c=10;
                                     choixValide=true;
                                 }else{ 
@@ -61,20 +61,6 @@ public class Saisir {
 		}while(true);
 	}
 	
-        public int menu(){
-            String choix;
-		do{
-			choix = MaSaisie();
-			if (choix.equals("jouer local")) {
-                            return 1;
-			}else if (choix.equals("jouer online")) {
-                            return 2;
-			}else if (choix.equals("rejoindre online")) {
-                return 2;
-			}
-			System.out.println("L'entrée saisie est invalide !");
-		}while(true);
-        }
         
         
 	public int getLigne() {
