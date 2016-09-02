@@ -1,11 +1,14 @@
 package bataillenaval;
 
 import com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary;
+import reseau.FileManager;
 
 public class Jeu {
 
 	private Plateau plat;
 	private Affichage aff;
+        public FileManager fM = new FileManager();
+        
 
 
 	public void choixBateauAPlacer(int tourJ, Plateau plateau, Affichage aff) {
@@ -109,4 +112,5 @@ public class Jeu {
 	public Plateau getPlat(){
 		return plat;
 	}
+
 }

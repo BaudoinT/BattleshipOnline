@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package bataillenaval;
 
 import com.google.gson.GsonBuilder;
@@ -23,37 +22,70 @@ public class BatailleNaval {
     public static void main(String[] args) {
 
         // TODO code application logic here
-    
-       
-
         System.out.println(constantes.HELP);
         System.out.println("Que voulez vous faire ?");
         System.out.println("1: Jouer en partie local");
         System.out.println("2: Jouer en partie online");
         System.out.println("3: Rejoindre une partie online");
-        FileManager fM = new FileManager();
+        //FileManager fM = new FileManager();
         Saisir saisie = new Saisir();
         int choix = saisie.choixListe(3);
         if (choix == 1) {
             JeuLocal jeulocal = new JeuLocal();
             jeulocal.lancerPartie();
+
         } else if (choix == 2) {
-            String gameName = fM.createNewGame();
-            while (!fM.isMyTurn()) {
+            Jeu jeu = new Jeu();
+            String gameName = jeu.fM.createNewGame();
+            while (!jeu.fM.isMyTurn()) {
                 try {
                     Thread.sleep(5000);
+                    System.out.println("Attente j2");
                 } catch (InterruptedException ex) {
                 }
             }
+            System.out.println("C'est mon tour");
             Plateau plateau = new Plateau();
+            Affichage aff = new Affichage(plateau.getplateauJ1(), plateau.getplateauJ2());
+            Partie partie = new Partie(plateau, gameName, System.getProperty("user.name"), "");
+            aff.affichagePlateau(0);
+            System.out.println("Au tour du joueur 1 de placer ses bateaux !");
 
-            Partie partie = new Partie(plateau, gameName, System.getProperty("user.name"), "unknown");
+            int tourJoueur = 0;
+            jeu.choixBateauAPlacer(0, plateau, aff);
 
-            fM.write(gameName, new GsonBuilder().create().toJson(partie));
+            jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
 
-            
+            System.out.println("Au tour du joueur 2 de placer ses bateaux !");
+            while (!jeu.fM.isMyTurn()) {
+                try {
+                    Thread.sleep(5000);
+                    System.out.println("Attente j2");
+                } catch (InterruptedException ex) {
+                }
+            }
+
         } else if (choix == 3) {
-            fM.joinGame();
+            Jeu jeu = new Jeu();
+            jeu.fM.joinGame();
+            System.out.println("Au tour du joueur 1 de placer ses bateaux !");
+            while (!jeu.fM.isMyTurn()) {
+                try {
+                    Thread.sleep(5000);
+                    System.out.println("Attente j1");
+                } catch (InterruptedException ex) {
+                }
+            }
+            Partie partie;
+            partie = jeu.fM.read();
+            Plateau plateau = partie.getPlateau();
+            Affichage aff = new Affichage(plateau.getplateauJ1(), plateau.getplateauJ2());
+            String gameName = partie.getName();
+            aff.affichagePlateau(1);
+            jeu.choixBateauAPlacer(1, plateau, aff);
+            
+            
+            jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
 
         }
 
