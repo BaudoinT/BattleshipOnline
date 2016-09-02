@@ -62,24 +62,7 @@ public class Affichage {
 			}
 			System.out.println("\u001B[30;47m");
 		}
-		System.out.println("\nPlateau du joueur ");
-		this.affichageHautPlateau();
-		for (int i = 0; i < 10; i++) {
-
-
-            for (int j = 0; j < 10; j++) {
-                if (plateaux.get(1 - tour)[i][j].bateauCoule()) {
-                    System.out.print("\u001B[30;42m___\u001B[30;44m|");
-                } else if (plateaux.get(1 - tour)[i][j].isToucher() && plateaux.get(1 - tour)[i][j].hasBateau()) {
-                    System.out.print("\u001B[30;41m___\u001B[30;44m|");
-                } else if (plateaux.get(1 - tour)[i][j].isToucher()) {
-                    System.out.print("\u001B[30;47m___\u001B[30;44m|");
-                } else {
-                    System.out.print("\u001B[30;44m___|");
-                }
-            }
-            System.out.println("\u001B[30;47m");
-        }
+		
         System.out.println("\nVotre plateau");
         this.affichageHautPlateau();
         for (int i = 0; i < 10; i++) {
