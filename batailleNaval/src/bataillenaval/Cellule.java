@@ -19,7 +19,7 @@ public class Cellule {
 
 	public boolean setToucher() {
 		this.toucher = true;
-		if(bateau!=null){
+		if(bateau!=null && !toucher){
 			bateau.bateauTouche();
                         return true;
 		}
