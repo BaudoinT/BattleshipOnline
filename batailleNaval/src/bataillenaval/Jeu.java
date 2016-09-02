@@ -1,13 +1,16 @@
 package bataillenaval;
 
+import com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary;
+
 public class Jeu {
 
 	private Plateau plat;
 	private Affichage aff;
 
 
-	public void choixBateauAPlacer(int tourJ) {
-
+	public void choixBateauAPlacer(int tourJ, Plateau plateau, Affichage aff) {
+                plat=plateau;
+                this.aff=aff;
 		System.out.println("Vous avez 5 bateaux à placer: ");
 		System.out.println("1: Torpilleur (2 cases)");
 		System.out.println("2: Contre-torpilleur (3 cases)");

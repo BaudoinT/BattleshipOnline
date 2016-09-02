@@ -19,10 +19,10 @@ public class JeuLocal {
 
 		tourJoueur=0;
 		System.out.println("Au tour du joueur 1 de placer ses bateaux !");
-		jeu.choixBateauAPlacer(tourJoueur);	
+		jeu.choixBateauAPlacer(tourJoueur, plat, aff);	
 		System.out.println("Au tour du joueur 2 de placer ses bateaux !");
 		tourJoueur=(tourJoueur++)%2;
-		jeu.choixBateauAPlacer(tourJoueur);
+		jeu.choixBateauAPlacer(tourJoueur, plat, aff);
 
 
 		//J1 joue (annonce touche coule)
