@@ -35,6 +35,7 @@ public class JeuLocal {
 		touche.Attaque(tourJoueur);
                 tourJoueur=(tourJoueur+1)%2;
                 }while(touche.gagne(tourJoueur));
+                System.out.println("Félicitations, le joueur "+(tourJoueur+1)+" à gagné !");
 
 	}
 }
