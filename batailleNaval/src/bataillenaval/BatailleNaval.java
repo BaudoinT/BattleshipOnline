@@ -70,7 +70,7 @@ public class BatailleNaval {
                 aff.affichagePlateau(0);
                 touche.Attaque(0);
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
-                
+
                 while (!jeu.fM.isMyTurn()) {
                     try {
                         Thread.sleep(5000);
@@ -78,13 +78,11 @@ public class BatailleNaval {
                     } catch (InterruptedException ex) {
                     }
                 }
+                partie = jeu.fM.read();
+                plateau = partie.getPlateau();
                 aff.affichagePlateau(0);
             } while (touche.gagne(0));
 
-            
-            
-            
-            
         } else if (choix == 3) {
             Jeu jeu = new Jeu();
             jeu.fM.joinGame();
@@ -97,9 +95,11 @@ public class BatailleNaval {
                 }
             }
             Partie partie;
+            Plateau plateau;
+            Affichage aff;
             partie = jeu.fM.read();
-            Plateau plateau = partie.getPlateau();
-            Affichage aff = new Affichage(plateau.getplateauJ1(), plateau.getplateauJ2());
+            plateau = partie.getPlateau();
+            aff = new Affichage(plateau.getplateauJ1(), plateau.getplateauJ2());
             String gameName = partie.getName();
             aff.affichagePlateau(1);
             jeu.choixBateauAPlacer(1, plateau, aff);
@@ -107,7 +107,7 @@ public class BatailleNaval {
             jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
 
             ToucheCoule touche = new ToucheCoule(plateau, aff);
-            
+
             do {
                 aff.affichagePlateau(1);
                 while (!jeu.fM.isMyTurn()) {
@@ -117,6 +117,8 @@ public class BatailleNaval {
                     } catch (InterruptedException ex) {
                     }
                 }
+                partie = jeu.fM.read();
+                plateau = partie.getPlateau();
                 touche.Attaque(1);
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
                 aff.affichagePlateau(1);
