@@ -39,7 +39,7 @@ public class ToucheCoule {
         boolean bateauVivant=false;
         
         do{
-           if(!plateaux.get(1-tour)[x][y].bateauCoule())
+           if(plateaux.get(tour)[x][y].hasBateau() && !plateaux.get(tour)[x][y].bateauCoule())
                bateauVivant = true;
            if(x<10)
                x++;
@@ -48,7 +48,7 @@ public class ToucheCoule {
                y++;
            }   
         }while((x<10 && y<10) && !bateauVivant);
-        return !bateauVivant;
+        return bateauVivant;
     }
     
 }

@@ -34,8 +34,8 @@ public class JeuLocal {
 
                 do{
 		touche.Attaque(tourJoueur);
-                tourJoueur=(tourJoueur++)%2;
-                }while(!touche.gagne(tourJoueur));
+                tourJoueur=(tourJoueur+1)%2;
+                }while(touche.gagne(tourJoueur));
 
 	}
 }
