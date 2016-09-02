@@ -67,6 +67,7 @@ public class BatailleNaval {
 
             ToucheCoule touche = new ToucheCoule(plateau, aff);
             do {
+                aff.affichagePlateau(0);
                 touche.Attaque(0);
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
                 
@@ -77,6 +78,7 @@ public class BatailleNaval {
                     } catch (InterruptedException ex) {
                     }
                 }
+                aff.affichagePlateau(0);
             } while (touche.gagne(0));
 
             
@@ -107,6 +109,7 @@ public class BatailleNaval {
             ToucheCoule touche = new ToucheCoule(plateau, aff);
             
             do {
+                aff.affichagePlateau(1);
                 while (!jeu.fM.isMyTurn()) {
                     try {
                         Thread.sleep(5000);
@@ -116,6 +119,7 @@ public class BatailleNaval {
                 }
                 touche.Attaque(1);
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
+                aff.affichagePlateau(1);
             } while (touche.gagne(1));
         }
 
