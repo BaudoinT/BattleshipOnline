@@ -39,7 +39,7 @@ public class BatailleNaval {
             String gameName = jeu.fM.createNewGame();
             while (!jeu.fM.isMyTurn()) {
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                     System.out.println("Attente j2");
                 } catch (InterruptedException ex) {
                 }
@@ -51,6 +51,7 @@ public class BatailleNaval {
             aff.affichagePlateau(0);
             System.out.println("Au tour du joueur 1 de placer ses bateaux !");
 
+            int tourJoueur = 0;
             jeu.choixBateauAPlacer(0, plateau, aff);
 
             jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
@@ -63,9 +64,10 @@ public class BatailleNaval {
                 } catch (InterruptedException ex) {
                 }
             }
-            ToucheCoule touche;
-            touche = new ToucheCoule(plateau, aff);
+
+            ToucheCoule touche = new ToucheCoule(plateau, aff);
             do {
+                aff.affichagePlateau(0);
                 touche.Attaque(0);
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
                 
