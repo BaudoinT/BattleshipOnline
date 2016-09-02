@@ -39,7 +39,7 @@ public class BatailleNaval {
             String gameName = jeu.fM.createNewGame();
             while (!jeu.fM.isMyTurn()) {
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(3000);
                     System.out.println("Attente j2");
                 } catch (InterruptedException ex) {
                 }
@@ -51,7 +51,6 @@ public class BatailleNaval {
             aff.affichagePlateau(0);
             System.out.println("Au tour du joueur 1 de placer ses bateaux !");
 
-            int tourJoueur = 0;
             jeu.choixBateauAPlacer(0, plateau, aff);
 
             jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
@@ -64,10 +63,9 @@ public class BatailleNaval {
                 } catch (InterruptedException ex) {
                 }
             }
-
-            ToucheCoule touche = new ToucheCoule(plateau, aff);
+            ToucheCoule touche;
+            touche = new ToucheCoule(plateau, aff);
             do {
-                aff.affichagePlateau(0);
                 touche.Attaque(0);
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
 
@@ -80,6 +78,7 @@ public class BatailleNaval {
                 }
                 partie = jeu.fM.read();
                 plateau = partie.getPlateau();
+                touche = new ToucheCoule(plateau, aff);
                 aff.affichagePlateau(0);
             } while (touche.gagne(0));
 
@@ -106,8 +105,8 @@ public class BatailleNaval {
 
             jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
 
-            ToucheCoule touche = new ToucheCoule(plateau, aff);
-
+            ToucheCoule touche;
+            touche = new ToucheCoule(plateau, aff);
             do {
                 aff.affichagePlateau(1);
                 while (!jeu.fM.isMyTurn()) {
@@ -119,6 +118,7 @@ public class BatailleNaval {
                 }
                 partie = jeu.fM.read();
                 plateau = partie.getPlateau();
+                touche = new ToucheCoule(plateau, aff);
                 touche.Attaque(1);
                 jeu.fM.write(gameName, new GsonBuilder().create().toJson(partie));
                 aff.affichagePlateau(1);
