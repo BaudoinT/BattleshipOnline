@@ -31,10 +31,17 @@ public class Saisir {
 		boolean choixValide=false;
 		do{
 			choix= MaSaisie();
-			if (choix.length() == 2 && (choix.charAt(0) >= 'a' && choix.charAt(0) <= 'j') && (choix.charAt(1) >= '1' && choix.charAt(1) <= '9') ) {
+			if ((choix.length() == 2 || choix.length() ==  3) && (choix.charAt(0) >= 'a' && choix.charAt(0) <= 'j') && (choix.charAt(1) >= '1' && choix.charAt(1) <= '9') ) {
 				l = choix.charAt(0)-97;
-				c = choix.charAt(1)-49;
-				choixValide=true;
+                                if(choix.length() == 2){
+                                    c = choix.charAt(1)-49;
+                                    choixValide=true;
+                                }else if (choix.charAt(3) =='0'){
+                                    c=10;
+                                    choixValide=true;
+                                }else{ 
+                                    choixValide=false;
+                                }
 			}
 			if(!choixValide){
 				System.out.println("Entrée invalide, recommencez !");
