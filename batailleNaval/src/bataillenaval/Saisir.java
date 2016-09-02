@@ -19,6 +19,7 @@ public class Saisir {
 		}else if (choix.equals("abandon")){
 			System.out.println("Vous avez abandoné");
 			fileManager.delete(gameName);
+                        System.exit(0);
 			return "";
 		}else{
 			return choix;
@@ -43,7 +44,7 @@ public class Saisir {
                                     choixValide=false;
                                 }
 			}
-			if(!choixValide){
+			if(!choixValide && !choix.equals("")){
 				System.out.println("Entrée invalide, recommencez !");
 			}
 		}while(!choixValide);

@@ -20,16 +20,18 @@ public class BatailleNaval {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        int choix;
+        Saisir saisie = new Saisir();
+         do{
         // TODO code application logic here
         System.out.println(constantes.HELP);
         System.out.println("Que voulez vous faire ?");
         System.out.println("1: Jouer en partie local");
         System.out.println("2: Jouer en partie online");
         System.out.println("3: Rejoindre une partie online");
+        System.out.println("4: Quitter");
         //FileManager fM = new FileManager();
-        Saisir saisie = new Saisir();
-        int choix = saisie.choixListe(3);
+        choix = saisie.choixListe(44);
         if (choix == 1) {
             JeuLocal jeulocal = new JeuLocal();
             jeulocal.lancerPartie();
@@ -126,6 +128,7 @@ public class BatailleNaval {
                 aff.affichagePlateau(1);
             } while (touche.gagne(1));
         }
+         }while(choix!=4);
 
     }
 }
