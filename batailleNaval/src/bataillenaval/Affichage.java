@@ -30,7 +30,9 @@ public class Affichage {
 
             System.out.print("|\u001B[30;40m");
             for (int x = 0; x < 9; x++) {
-                if (plateaux.get(1-tour)[i][x].isToucher() && plateaux.get(1-tour)[i][x].hadBateau()) {
+                if (plateaux.get(1-tour)[i][x].bateauCoule()) {
+                    System.out.print("\u001B[30;42m   \u001B[30;44m|");
+                }else if (plateaux.get(1-tour)[i][x].isToucher() && plateaux.get(1-tour)[i][x].hasBateau()) {
                     System.out.print("\u001B[30;41m   \u001B[30;44m|");
                 } else if (plateaux.get(1-tour)[i][x].isToucher()) {
                     System.out.print("\u001B[30;47m   \u001B[30;44m|");
@@ -39,7 +41,9 @@ public class Affichage {
                 }
 
             }
-           if (plateaux.get(1-tour)[i][9].isToucher() && plateaux.get(1-tour)[i][9].hadBateau()) {
+            if (plateaux.get(1-tour)[i][9].bateauCoule()) {
+                    System.out.print("\u001B[30;42m   \u001B[30;44m|\u001B[30;47m");
+                }else if (plateaux.get(1-tour)[i][9].isToucher() && plateaux.get(1-tour)[i][9].hasBateau()) {
                 System.out.print("\u001B[30;41m   \u001B[30;44m|\u001B[30;47m");
             }else if (plateaux.get(1-tour)[i][9].isToucher()) {
                 System.out.print("\u001B[30;47m   \u001B[30;44m|\u001B[30;47m");
@@ -50,7 +54,9 @@ public class Affichage {
             System.out.print("\n|___|");
             
             for (int j = 0; j < 10; j++) {
-                 if (plateaux.get(1-tour)[i][j].isToucher() && plateaux.get(1-tour)[i][j].hadBateau()) {
+                if (plateaux.get(1-tour)[i][j].bateauCoule()) {
+                    System.out.print("\u001B[30;42m___\u001B[30;44m|");
+                }else if (plateaux.get(1-tour)[i][j].isToucher() && plateaux.get(1-tour)[i][j].hasBateau()) {
                     System.out.print("\u001B[30;41m___\u001B[30;44m|");
                 }else if (plateaux.get(1-tour)[i][j].isToucher()) {
                     System.out.print("\u001B[30;47m___\u001B[30;44m|");
@@ -69,9 +75,11 @@ public class Affichage {
 
             System.out.print("|\u001B[30;40m");
             for (int x = 0; x < 9; x++) {
-                if (plateaux.get(tour)[i][x].hasBateau()) {
+                 if (plateaux.get(1-tour)[i][x].bateauCoule()) {
+                    System.out.print("\u001B[30;42m   \u001B[30;44m|");
+                }else if (plateaux.get(tour)[i][x].hasBateau()) {
                     System.out.print("\u001B[30;43m   \u001B[30;44m|");
-                } else if (plateaux.get(tour)[i][x].isToucher() && plateaux.get(tour)[i][x].hadBateau()) {
+                } else if (plateaux.get(tour)[i][x].isToucher() && plateaux.get(tour)[i][x].hasBateau()) {
                     System.out.print("\u001B[30;41m   \u001B[30;44m|");
                 } else if (plateaux.get(tour)[i][x].isToucher()) {
                     System.out.print("\u001B[30;47m   \u001B[30;44m|");
@@ -80,9 +88,11 @@ public class Affichage {
                 }
 
             }
-            if (plateaux.get(tour)[i][9].hasBateau()) {
+            if (plateaux.get(1-tour)[i][9].bateauCoule()) {
+                    System.out.print("\u001B[30;42m   \u001B[30;44m|\u001B[30;47m");
+                }else if (plateaux.get(tour)[i][9].hasBateau()) {
                 System.out.print("\u001B[30;43m   \u001B[30;44m|\u001B[30;47m");
-            } else if (plateaux.get(tour)[i][9].isToucher() && plateaux.get(tour)[i][9].hadBateau()) {
+            } else if (plateaux.get(tour)[i][9].isToucher() && plateaux.get(tour)[i][9].hasBateau()) {
                 System.out.print("\u001B[30;41m   \u001B[30;44m|\u001B[30;47m");
             }else if (plateaux.get(tour)[i][9].isToucher()) {
                 System.out.print("\u001B[30;47m   \u001B[30;44m|\u001B[30;47m");
@@ -93,9 +103,11 @@ public class Affichage {
             System.out.print("\n|___|");
             
             for (int j = 0; j < 10; j++) {
-                if (plateaux.get(tour)[i][j].hasBateau()) {
+                if (plateaux.get(1-tour)[i][j].bateauCoule()) {
+                    System.out.print("\u001B[30;42m___\u001B[30;44m|");
+                }else  if (plateaux.get(tour)[i][j].hasBateau()) {
                     System.out.print("\u001B[30;43m___\u001B[30;44m|");
-                } else if (plateaux.get(tour)[i][j].isToucher() && plateaux.get(tour)[i][j].hadBateau()) {
+                } else if (plateaux.get(tour)[i][j].isToucher() && plateaux.get(tour)[i][j].hasBateau()) {
                     System.out.print("\u001B[30;41m___\u001B[30;44m|");
                 }else if (plateaux.get(tour)[i][j].isToucher()) {
                     System.out.print("\u001B[30;47m___\u001B[30;44m|");
