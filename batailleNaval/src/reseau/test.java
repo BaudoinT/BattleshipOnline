@@ -7,10 +7,11 @@
 package reseau;
 
 import bataillenaval.Plateau;
+import bataillenaval.constantes;
 import com.google.gson.GsonBuilder;
+import java.io.File;
 
 /**
- *
  * @author lalleaul
  */
 public class test {
@@ -19,6 +20,7 @@ public class test {
      Plateau p = new Plateau();
      p.initPlateauAvecDesTrucs();
      w.write("testonsGayment", new GsonBuilder().create().toJson(p));
-     w.delete("testonsGayment");
+     System.out.println(new File(constantes.PATH + "testonsGayment").lastModified());
+     //w.delete("testonsGayment");
  }
 }
